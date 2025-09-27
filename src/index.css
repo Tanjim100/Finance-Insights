@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  body {
+    @apply antialiased bg-gray-50 text-gray-900;
+    /* font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace; */
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-gray-900 text-white hover:bg-gray-800 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 transition-colors;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 p-6;
+  }
+}
