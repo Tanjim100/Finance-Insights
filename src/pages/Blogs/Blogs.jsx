@@ -351,7 +351,7 @@ const Blogs = () => {
     }
 
     return (
-        <div className='max-w-7xl mx-auto mb-5'>
+        <div className='max-w-7xl mx-auto mb-5 px-5'>
             <HeaderTitle title={"All Blog Posts"} para={"Browse our collection of financial insights and expert advice."}></HeaderTitle>
             <div className='divider h-px bg-gray-300 my-12'></div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mt-10">

@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div className=''>
-            <footer className="footer sm:footer-horizontal bg-[#01101C] text-base-content py-16 justify-around">
+            <footer className="footer sm:footer-horizontal bg-[#01101C] text-base-content py-16 px-5 md:px-0 justify-around">
                 <aside className='space-y-3'>
                     <svg
                         width="50"
@@ -49,7 +49,7 @@ const Footer = () => {
                     <h6 className="footer-title font-bold text-xl opacity-100 ">Stay Updated</h6>
                     <p className='w-72'>Get the latest finance and accounting insights delivered to your inbox.</p>
                     <div className='flex gap-2 mt-4 items-center'>
-                        <input type="email" placeholder="Enter your Email" className="input rounded-full w-65 h-8 px-4 py-2 bg-[#344553] text-[#B0B7BC] text-xs font-normal" />
+                        <input type="email" placeholder="Enter your Email" className="input rounded-full w-50 md:w-65 h-8 px-4 py-2 bg-[#344553] text-[#B0B7BC] text-xs font-normal" />
                         <button className="btn btn-neutral btn-outline rounded-full bg-white hover:bg-black px-6 py-2 text-xs font-semibold">Subscribe</button>
                     </div>
                     <aside className='pt-5'>

@@ -12,39 +12,7 @@ const Navbar = () => {
 
     return (
         <div className="bg-[#01101C]">
-            {/* <nav className="bg-[#01101C] sticky top-0 z-50 py-2">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center">
-                            <Link to="/" className="flex items-center space-x-3">
-                                <span className="text-lg font-bold text-white">FINANCE<br/>INSIGHTS</span>
-                            </Link>
-                        </div>
-
-                        <div className='relative'>
-                            <button><IoSearch className='absolute left-90 bottom-2 z-10 text-2xl text-white' /></button>
-                            <input type="text" placeholder="Type here" className="input text-white border-white rounded-full w-100 z-5 placeholder-white" />
-                            
-                        </div>
-
-                        <div className="flex space-x-1">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    className={`px-4 py-2 transition-colors text-sm ${location.pathname === link.path
-                                            ? 'bg-gray-100 text-gray-900 font-medium'
-                                            : 'text-white hover:bg-gray-50 hover:text-gray-900'
-                                        }`}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </nav> */}
-
+            
 
 
             <div className="navbar shadow-sm max-w-7xl mx-auto">
