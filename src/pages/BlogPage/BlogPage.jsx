@@ -10,7 +10,7 @@ const BlogPage = () => {
             tag: "compliance",
             details: "How automation and AI are revolutionizing bookkeeping and financial reporting.",
             publishedDate: "2025-08-19",
-            image: "https://source.unsplash.com/600x400/?ai-accounting"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 14,
@@ -19,7 +19,7 @@ const BlogPage = () => {
             tag: "compliance",
             details: "How automation and AI are revolutionizing bookkeeping and financial reporting.",
             publishedDate: "2025-08-19",
-            image: "https://source.unsplash.com/600x400/?ai-accounting"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 14,
@@ -28,7 +28,7 @@ const BlogPage = () => {
             tag: "compliance",
             details: "How automation and AI are revolutionizing bookkeeping and financial reporting.",
             publishedDate: "2025-08-19",
-            image: "https://source.unsplash.com/600x400/?ai-accounting"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
     ]
     const categorys = ["tax", "finance", "accounting", "banking", "industry", "economics", "auditing", "share market"];
