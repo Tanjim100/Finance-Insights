@@ -18,7 +18,8 @@ const FeaturedPosts = () => {
             category: "banking",
             details: "Exploring how AI and blockchain are reshaping mobile banking services worldwide.",
             publishedDate: "2025-02-01",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
+            
         },
         {
             id: 3,
@@ -26,7 +27,7 @@ const FeaturedPosts = () => {
             category: "accounting",
             details: "A roundup of user-friendly and affordable accounting software solutions for startups.",
             publishedDate: "2025-02-10",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 4,
@@ -34,7 +35,7 @@ const FeaturedPosts = () => {
             category: "finance",
             details: "An in-depth analysis of global finance trends impacting investments and policies.",
             publishedDate: "2025-03-05",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
     ]
     return (
