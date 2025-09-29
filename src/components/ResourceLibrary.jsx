@@ -60,7 +60,7 @@ const ResourceLibrary = () => {
                         <button className="">
                             <a
                                 className="inline-block rounded-full border px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-black"
-                                href="#"
+                                href="/resources"
                             >
                                 View All Resources
                             </a>

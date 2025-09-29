@@ -10,7 +10,7 @@ const FeaturedPosts = () => {
             category: "tax",
             details: "Learn actionable strategies to reduce taxable income legally and boost your savings.",
             publishedDate: "2025-01-14",
-            image: "https://source.unsplash.com/600x400/?tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 2,
@@ -18,7 +18,7 @@ const FeaturedPosts = () => {
             category: "banking",
             details: "Exploring how AI and blockchain are reshaping mobile banking services worldwide.",
             publishedDate: "2025-02-01",
-            image: "https://source.unsplash.com/600x400/?banking"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 3,
@@ -26,7 +26,7 @@ const FeaturedPosts = () => {
             category: "accounting",
             details: "A roundup of user-friendly and affordable accounting software solutions for startups.",
             publishedDate: "2025-02-10",
-            image: "https://source.unsplash.com/600x400/?accounting"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 4,
@@ -34,7 +34,7 @@ const FeaturedPosts = () => {
             category: "finance",
             details: "An in-depth analysis of global finance trends impacting investments and policies.",
             publishedDate: "2025-03-05",
-            image: "https://source.unsplash.com/600x400/?finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
     ]
     return (

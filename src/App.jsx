@@ -9,6 +9,7 @@ import Blogs from './pages/Blogs/Blogs';
 import MainLayout from './layouts/MainLayout';
 import ResoucesPage from './pages/ResourcesPage/ResoucesPage';
 import BlogPage from './pages/BlogPage/BlogPage';
+import AdminResoucePage from './pages/AdminResourcePage/AdminResourcePage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ function App() {
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/blog" element={<BlogPage />} />
               <Route path="/resources" element={<ResoucesPage />} />
+              <Route path="/admin-resources" element={<AdminResoucePage />} />
               <Route path="/about" element={<About />} />
             </Routes>
           </MainLayout>
