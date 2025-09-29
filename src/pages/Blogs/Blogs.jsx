@@ -13,7 +13,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "Learn actionable strategies to reduce taxable income legally and boost your savings.",
             publishedDate: "2025-01-14",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 2,
@@ -22,7 +22,7 @@ const Blogs = () => {
             tag: "money",
             details: "Exploring how AI and blockchain are reshaping mobile banking services worldwide.",
             publishedDate: "2025-02-01",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 3,
@@ -31,7 +31,7 @@ const Blogs = () => {
             tag: "audit",
             details: "A roundup of user-friendly and affordable accounting software solutions for startups.",
             publishedDate: "2025-02-10",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 4,
@@ -40,7 +40,7 @@ const Blogs = () => {
             tag: "investing",
             details: "An in-depth analysis of global finance trends impacting investments and policies.",
             publishedDate: "2025-03-05",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 5,
@@ -49,7 +49,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Breaking down complex corporate tax regulations into easy-to-understand concepts.",
             publishedDate: "2025-03-21",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 6,
@@ -58,7 +58,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A look at how artificial intelligence is driving change across finance operations.",
             publishedDate: "2025-04-11",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 7,
@@ -67,7 +67,7 @@ const Blogs = () => {
             tag: "audit",
             details: "Exploring how auditors ensure compliance and accuracy in today’s business world.",
             publishedDate: "2025-05-02",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 8,
@@ -76,7 +76,7 @@ const Blogs = () => {
             tag: "money",
             details: "Examining the rise of e-wallets and how they are changing the way people bank.",
             publishedDate: "2025-05-19",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 9,
@@ -85,7 +85,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "Key takeaways on the current wave of global M&A activity shaping industries.",
             publishedDate: "2025-06-08",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 10,
@@ -94,7 +94,7 @@ const Blogs = () => {
             tag: "money",
             details: "Practical advice on budgeting, investing, and saving for millennials and Gen Z.",
             publishedDate: "2025-06-25",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 11,
@@ -103,7 +103,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "An overview of how compliance and regulations impact small businesses in banking.",
             publishedDate: "2025-07-10",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 12,
@@ -112,7 +112,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "Highlights of new tax reforms and how they affect individuals and corporations.",
             publishedDate: "2025-07-22",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 13,
@@ -121,7 +121,7 @@ const Blogs = () => {
             tag: "investing",
             details: "Why green bonds and ESG investments are gaining momentum in global markets.",
             publishedDate: "2025-08-05",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 14,
@@ -139,7 +139,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A closer look at how traditional banks are adapting to digital transformation.",
             publishedDate: "2025-09-01",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 16,
@@ -148,7 +148,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "A guide for freelancers to maximize deductions and reduce tax liability.",
             publishedDate: "2025-07-05",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 17,
@@ -157,7 +157,7 @@ const Blogs = () => {
             tag: "money",
             details: "How digital banking innovations are reshaping customer experience.",
             publishedDate: "2025-07-12",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 18,
@@ -166,7 +166,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Why compliance is critical in today’s interconnected financial markets.",
             publishedDate: "2025-07-18",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 19,
@@ -175,7 +175,7 @@ const Blogs = () => {
             tag: "audit",
             details: "Key auditing practices every small business owner should know.",
             publishedDate: "2025-07-24",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 20,
@@ -184,7 +184,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "An analysis of how rising inflation changes stock market strategies.",
             publishedDate: "2025-08-01",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/rRXVBDwX/43398.jpg"
         },
         {
             id: 21,
@@ -193,7 +193,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Steps companies must take to avoid penalties and stay tax compliant.",
             publishedDate: "2025-08-07",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 22,
@@ -202,7 +202,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A simple guide for beginners to start investing in the stock market.",
             publishedDate: "2025-08-13",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 23,
@@ -211,7 +211,7 @@ const Blogs = () => {
             tag: "audit",
             details: "AI-driven tools that reduce manual accounting tasks and errors.",
             publishedDate: "2025-08-20",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 24,
@@ -220,7 +220,7 @@ const Blogs = () => {
             tag: "investing",
             details: "How banks are integrating sustainability into their financial services.",
             publishedDate: "2025-08-28",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 25,
@@ -238,7 +238,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "How digital transformation is reshaping compliance requirements.",
             publishedDate: "2025-09-09",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 27,
@@ -256,7 +256,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "How smart tax planning can secure your financial future post-retirement.",
             publishedDate: "2025-09-21",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 29,
@@ -274,7 +274,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "A compliance checklist tailored for startup banking operations.",
             publishedDate: "2025-10-03",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 31,
@@ -283,7 +283,7 @@ const Blogs = () => {
             tag: "audit",
             details: "A breakdown of the most common accounting mistakes and fixes.",
             publishedDate: "2025-10-11",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 32,
@@ -310,7 +310,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "How entrepreneurs can leverage tax planning to boost profitability.",
             publishedDate: "2025-10-30",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 35,
@@ -319,7 +319,7 @@ const Blogs = () => {
             tag: "investing",
             details: "How AI is transforming banking services and customer investments.",
             publishedDate: "2025-11-05",
-            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         }
     ];
 
