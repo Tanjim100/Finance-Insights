@@ -130,7 +130,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "How automation and AI are revolutionizing bookkeeping and financial reporting.",
             publishedDate: "2025-08-19",
-            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
+            image: "https://i.ibb.co.com/xyX6Zff/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 15,
@@ -229,7 +229,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "Tips for handling personal budgets when inflation rates are high.",
             publishedDate: "2025-09-02",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 26,
@@ -247,7 +247,7 @@ const Blogs = () => {
             tag: "investing",
             details: "Smart investment strategies to maximize returns in a volatile market.",
             publishedDate: "2025-09-15",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 28,
@@ -265,7 +265,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "An overview of major M&A deals and their effect on the global market.",
             publishedDate: "2025-09-26",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 30,
@@ -292,7 +292,7 @@ const Blogs = () => {
             tag: "money",
             details: "Exploring how digital currencies are reshaping personal finance.",
             publishedDate: "2025-10-17",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 33,
@@ -301,7 +301,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "A business leader’s perspective on managing inflation challenges.",
             publishedDate: "2025-10-23",
-            image: "/src/assets/BlogPic/43398.jpg"
+            image: "https://i.ibb.co.com/R4MBdDZb/2003-i105-019-isometric-bank-flowchart.jpg"
         },
         {
             id: 34,
