@@ -112,7 +112,7 @@ const ResoucesPage = () => {
     }
 
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-7xl mx-auto px-5'>
             <HeaderTitle title={"Resource Library"} para={"Download helpful guides, worksheets, and reference materials"}></HeaderTitle>
 
             <div className='filter flex justify-between my-12'>
@@ -187,7 +187,7 @@ const ResoucesPage = () => {
             </div>
             <div className='pagination flex justify-center gap-2 my-16'>
                 {/* <p>Current Page: {currentPage}</p> */}
-                <button className='btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
+                <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-4"
@@ -202,9 +202,9 @@ const ResoucesPage = () => {
                     </svg>
                 </button>
                 {
-                    pages.map(page => <button className={`btn border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
+                    pages.map(page => <button className={`btn btn-xs md:btn-md border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
                 }
-                <button className='btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
+                <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-4"

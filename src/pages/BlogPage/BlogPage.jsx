@@ -34,11 +34,11 @@ const BlogPage = () => {
     const categorys = ["tax", "finance", "accounting", "banking", "industry", "economics", "auditing", "share market"];
     const tags = ["tax planning", "audit", "compliance", "money", "investing", "stocks", "inflation", "bonds"];
     return (
-        <div className='max-w-7xl mx-auto my-10'>
+        <div className='max-w-7xl mx-auto my-10 px-5'>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
 
                 {/* Side Bar  */}
-                <div className=" rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10">
+                <div className=" rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 md:order-1">
                     <div>
                         <h3 className='text-xl pb-4 font-bold'>
                             Recent Posts
@@ -64,12 +64,14 @@ const BlogPage = () => {
                         <span className="flex items-center">
                             <span className="h-px flex-1 bg-white"></span>
                         </span>
-                        <div className='pt-4 grid grid-cols-2'>
+                        <div className='pt-4 grid grid-cols-2 gap-1'>
                             {
                                 categorys.map((blogcategory, idx) => (
-                                    <div key={idx} className='py-2'>
-                                        <p className='font-semibold'>{blogcategory}</p>
+                                    <button key={idx}>
+                                        <div className='py-1'>
+                                        <p className='font-semibold text-left'>{blogcategory}</p>
                                     </div>
+                                    </button>
                                 ))
                             }
                         </div>
@@ -95,7 +97,7 @@ const BlogPage = () => {
 
 
                             {/* Blog Bar  */}
-                <div className=" rounded-lg lg:col-span-3">
+                <div className=" rounded-lg lg:col-span-3 order-1 md:order-2">
                     <h3 className='text-3xl font-bold text-[#01101C]'>AI-Powered Accounting: The Next Frontier</h3>
                     {/* <p className='text-xl my-2'>Stay Ahead of New Regulations</p> */}
                     <p className="text-[#01101C] my-2 font-[400] italic text-[20px] leading-[120%] tracking-[0.6px] font-serif">Stay Ahead of New Regulations</p>
@@ -127,8 +129,8 @@ const BlogPage = () => {
                     <div>
                         <img
                             alt=""
-                            src="https://source.unsplash.com/600x400/?ai-accounting"
-                            className="h-140 w-full object-cover border"
+                            src="/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+                            className=" w-full object-cover border"
                         />
                     </div>
                     <div className="text-[#01101C] font-[400] text-[18px] leading-[170%] tracking-[0.54px] font-serif space-y-10 mt-8" >
@@ -173,7 +175,7 @@ const BlogPage = () => {
                     </div>
                     <div className='space-y-6 my-10'>
                         <h4 className='text-2xl font-bold text-[#01101C]'>Related Posts</h4>
-                        <div className='related-posts flex gap-5'>
+                        <div className='related-posts grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 recentPosts.map(post => <BlogCard key={post.id} blog={post}></BlogCard>)
                             }

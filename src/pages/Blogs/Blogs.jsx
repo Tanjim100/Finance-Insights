@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import BlogCard from '../../components/BlogCard';
 import HeaderTitle from '../../components/HeaderTitle';
-import button from 'daisyui/components/button';
+// import button from 'daisyui/components/button';
+// import blogImage from '../../assets/BlogPic/futuristic-robot-interacting-with-money.jpg'
 
 const Blogs = () => {
     const blogs = [
@@ -12,7 +13,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "Learn actionable strategies to reduce taxable income legally and boost your savings.",
             publishedDate: "2025-01-14",
-            image: "https://source.unsplash.com/600x400/?tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 2,
@@ -21,7 +22,7 @@ const Blogs = () => {
             tag: "money",
             details: "Exploring how AI and blockchain are reshaping mobile banking services worldwide.",
             publishedDate: "2025-02-01",
-            image: "https://source.unsplash.com/600x400/?banking"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 3,
@@ -30,7 +31,7 @@ const Blogs = () => {
             tag: "audit",
             details: "A roundup of user-friendly and affordable accounting software solutions for startups.",
             publishedDate: "2025-02-10",
-            image: "https://source.unsplash.com/600x400/?accounting"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 4,
@@ -39,7 +40,7 @@ const Blogs = () => {
             tag: "investing",
             details: "An in-depth analysis of global finance trends impacting investments and policies.",
             publishedDate: "2025-03-05",
-            image: "https://source.unsplash.com/600x400/?finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 5,
@@ -48,7 +49,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Breaking down complex corporate tax regulations into easy-to-understand concepts.",
             publishedDate: "2025-03-21",
-            image: "https://source.unsplash.com/600x400/?corporate-tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 6,
@@ -57,7 +58,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A look at how artificial intelligence is driving change across finance operations.",
             publishedDate: "2025-04-11",
-            image: "https://source.unsplash.com/600x400/?ai-finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 7,
@@ -66,7 +67,7 @@ const Blogs = () => {
             tag: "audit",
             details: "Exploring how auditors ensure compliance and accuracy in today’s business world.",
             publishedDate: "2025-05-02",
-            image: "https://source.unsplash.com/600x400/?auditing"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 8,
@@ -75,7 +76,7 @@ const Blogs = () => {
             tag: "money",
             details: "Examining the rise of e-wallets and how they are changing the way people bank.",
             publishedDate: "2025-05-19",
-            image: "https://source.unsplash.com/600x400/?digital-wallet"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 9,
@@ -84,7 +85,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "Key takeaways on the current wave of global M&A activity shaping industries.",
             publishedDate: "2025-06-08",
-            image: "https://source.unsplash.com/600x400/?industry"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 10,
@@ -93,7 +94,7 @@ const Blogs = () => {
             tag: "money",
             details: "Practical advice on budgeting, investing, and saving for millennials and Gen Z.",
             publishedDate: "2025-06-25",
-            image: "https://source.unsplash.com/600x400/?personal-finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 11,
@@ -102,7 +103,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "An overview of how compliance and regulations impact small businesses in banking.",
             publishedDate: "2025-07-10",
-            image: "https://source.unsplash.com/600x400/?regulation"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 12,
@@ -111,7 +112,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "Highlights of new tax reforms and how they affect individuals and corporations.",
             publishedDate: "2025-07-22",
-            image: "https://source.unsplash.com/600x400/?policy"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 13,
@@ -120,7 +121,7 @@ const Blogs = () => {
             tag: "investing",
             details: "Why green bonds and ESG investments are gaining momentum in global markets.",
             publishedDate: "2025-08-05",
-            image: "https://source.unsplash.com/600x400/?sustainable-finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 14,
@@ -129,7 +130,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "How automation and AI are revolutionizing bookkeeping and financial reporting.",
             publishedDate: "2025-08-19",
-            image: "https://source.unsplash.com/600x400/?ai-accounting"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 15,
@@ -138,7 +139,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A closer look at how traditional banks are adapting to digital transformation.",
             publishedDate: "2025-09-01",
-            image: "https://source.unsplash.com/600x400/?digital-banking"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 16,
@@ -147,7 +148,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "A guide for freelancers to maximize deductions and reduce tax liability.",
             publishedDate: "2025-07-05",
-            image: "https://source.unsplash.com/600x400/?freelancer,tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 17,
@@ -156,7 +157,7 @@ const Blogs = () => {
             tag: "money",
             details: "How digital banking innovations are reshaping customer experience.",
             publishedDate: "2025-07-12",
-            image: "https://source.unsplash.com/600x400/?banking,trends"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 18,
@@ -165,7 +166,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Why compliance is critical in today’s interconnected financial markets.",
             publishedDate: "2025-07-18",
-            image: "https://source.unsplash.com/600x400/?compliance,finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 19,
@@ -174,7 +175,7 @@ const Blogs = () => {
             tag: "audit",
             details: "Key auditing practices every small business owner should know.",
             publishedDate: "2025-07-24",
-            image: "https://source.unsplash.com/600x400/?audit,smallbusiness"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 20,
@@ -183,7 +184,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "An analysis of how rising inflation changes stock market strategies.",
             publishedDate: "2025-08-01",
-            image: "https://source.unsplash.com/600x400/?inflation,investment"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 21,
@@ -192,7 +193,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "Steps companies must take to avoid penalties and stay tax compliant.",
             publishedDate: "2025-08-07",
-            image: "https://source.unsplash.com/600x400/?corporate,tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 22,
@@ -201,7 +202,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "A simple guide for beginners to start investing in the stock market.",
             publishedDate: "2025-08-13",
-            image: "https://source.unsplash.com/600x400/?stocks,finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 23,
@@ -210,7 +211,7 @@ const Blogs = () => {
             tag: "audit",
             details: "AI-driven tools that reduce manual accounting tasks and errors.",
             publishedDate: "2025-08-20",
-            image: "https://source.unsplash.com/600x400/?ai,accounting"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 24,
@@ -219,7 +220,7 @@ const Blogs = () => {
             tag: "investing",
             details: "How banks are integrating sustainability into their financial services.",
             publishedDate: "2025-08-28",
-            image: "https://source.unsplash.com/600x400/?green,banking"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 25,
@@ -228,7 +229,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "Tips for handling personal budgets when inflation rates are high.",
             publishedDate: "2025-09-02",
-            image: "https://source.unsplash.com/600x400/?inflation,money"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 26,
@@ -237,7 +238,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "How digital transformation is reshaping compliance requirements.",
             publishedDate: "2025-09-09",
-            image: "https://source.unsplash.com/600x400/?digital,compliance"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 27,
@@ -246,7 +247,7 @@ const Blogs = () => {
             tag: "investing",
             details: "Smart investment strategies to maximize returns in a volatile market.",
             publishedDate: "2025-09-15",
-            image: "https://source.unsplash.com/600x400/?investment,strategy"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 28,
@@ -255,7 +256,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "How smart tax planning can secure your financial future post-retirement.",
             publishedDate: "2025-09-21",
-            image: "https://source.unsplash.com/600x400/?retirement,tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 29,
@@ -264,7 +265,7 @@ const Blogs = () => {
             tag: "stocks",
             details: "An overview of major M&A deals and their effect on the global market.",
             publishedDate: "2025-09-26",
-            image: "https://source.unsplash.com/600x400/?mergers,industry"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 30,
@@ -273,7 +274,7 @@ const Blogs = () => {
             tag: "compliance",
             details: "A compliance checklist tailored for startup banking operations.",
             publishedDate: "2025-10-03",
-            image: "https://source.unsplash.com/600x400/?startup,banking"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         },
         {
             id: 31,
@@ -282,7 +283,7 @@ const Blogs = () => {
             tag: "audit",
             details: "A breakdown of the most common accounting mistakes and fixes.",
             publishedDate: "2025-10-11",
-            image: "https://source.unsplash.com/600x400/?accounting,mistakes"
+            image: "/src/assets/BlogPic/shopping-banking-accounting-webpage-text-search-concept.jpg"
         },
         {
             id: 32,
@@ -291,7 +292,7 @@ const Blogs = () => {
             tag: "money",
             details: "Exploring how digital currencies are reshaping personal finance.",
             publishedDate: "2025-10-17",
-            image: "https://source.unsplash.com/600x400/?digital,finance"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 33,
@@ -300,7 +301,7 @@ const Blogs = () => {
             tag: "inflation",
             details: "A business leader’s perspective on managing inflation challenges.",
             publishedDate: "2025-10-23",
-            image: "https://source.unsplash.com/600x400/?inflation,business"
+            image: "/src/assets/BlogPic/43398.jpg"
         },
         {
             id: 34,
@@ -309,7 +310,7 @@ const Blogs = () => {
             tag: "tax planning",
             details: "How entrepreneurs can leverage tax planning to boost profitability.",
             publishedDate: "2025-10-30",
-            image: "https://source.unsplash.com/600x400/?entrepreneur,tax"
+            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 35,
@@ -318,7 +319,7 @@ const Blogs = () => {
             tag: "investing",
             details: "How AI is transforming banking services and customer investments.",
             publishedDate: "2025-11-05",
-            image: "https://source.unsplash.com/600x400/?ai,banking"
+            image: "/src/assets/BlogPic/2003.i105.019..isometric bank flowchart.jpg"
         }
     ];
 
@@ -356,7 +357,7 @@ const Blogs = () => {
             <HeaderTitle title={"All Blog Posts"} para={"Browse our collection of financial insights and expert advice."}></HeaderTitle>
             <div className='divider h-px bg-gray-300 my-12'></div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mt-10">
-                <div className=" rounded  lg:col-span-3 order-2 mb-16">
+                <div className=" rounded  lg:col-span-3 order-2 md:order-1 mb-16">
                     <div className='flex justify-between mb-10 items-end'>
                         <h3>Total blogs: {blogs.length}</h3>
                         <div>
@@ -385,7 +386,7 @@ const Blogs = () => {
                     </div>
                     <div className='pagination flex justify-center gap-2 mt-12'>
                         {/* <p>Current Page: {currentPage}</p> */}
-                        <button className='btn btn-xs md:btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
+                        <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="size-4"
@@ -400,9 +401,9 @@ const Blogs = () => {
                             </svg>
                         </button>
                         {
-                            pages.map(page => <button className={`btn btn-xs md:btn border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
+                            pages.map(page => <button className={`btn btn-xs md:btn-md border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
                         }
-                        <button className='btn btn-xs md:btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
+                        <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="size-4"
@@ -429,7 +430,7 @@ const Blogs = () => {
 
 
                 {/* Side bar */}
-                <div className=" rounded-lg order-1 bg-[#E6E8EA] py-4 px-2 h-fit">
+                <div className=" rounded-lg order-1 md:order-2 bg-[#E6E8EA] py-4 px-2 h-fit">
                     <div>
                         <h3 className='text-xl p-2 font-bold'>
                             Filter By
