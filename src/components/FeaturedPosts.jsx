@@ -10,7 +10,7 @@ const FeaturedPosts = () => {
             category: "tax",
             details: "Learn actionable strategies to reduce taxable income legally and boost your savings.",
             publishedDate: "2025-01-14",
-            image: "/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+            image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
             id: 2,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import accountingLogo from '../../public/TopicLogo/calculator-svgrepo-com 2.png'
 
 const ExploreTopics = () => {
     
@@ -12,7 +13,7 @@ const ExploreTopics = () => {
 
         },
         {
-            logo: <img src="/public/TopicLogo/calculator-svgrepo-com 2.png" alt="" />,
+            logo: <img src={accountingLogo} alt="" />,
             title: "Accounting",
 
         },
