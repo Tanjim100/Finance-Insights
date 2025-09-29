@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BlogCard from '../../components/BlogCard';
 import HeaderTitle from '../../components/HeaderTitle';
+import button from 'daisyui/components/button';
 
 const Blogs = () => {
     const blogs = [
@@ -355,7 +356,7 @@ const Blogs = () => {
             <HeaderTitle title={"All Blog Posts"} para={"Browse our collection of financial insights and expert advice."}></HeaderTitle>
             <div className='divider h-px bg-gray-300 my-12'></div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 mt-10">
-                <div className=" rounded  lg:col-span-3 mb-16">
+                <div className=" rounded  lg:col-span-3 order-2 mb-16">
                     <div className='flex justify-between mb-10 items-end'>
                         <h3>Total blogs: {blogs.length}</h3>
                         <div>
@@ -384,7 +385,7 @@ const Blogs = () => {
                     </div>
                     <div className='pagination flex justify-center gap-2 mt-12'>
                         {/* <p>Current Page: {currentPage}</p> */}
-                        <button className='btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
+                        <button className='btn btn-xs md:btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="size-4"
@@ -399,9 +400,9 @@ const Blogs = () => {
                             </svg>
                         </button>
                         {
-                            pages.map(page => <button className={`btn border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
+                            pages.map(page => <button className={`btn btn-xs md:btn border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
                         }
-                        <button className='btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
+                        <button className='btn btn-xs md:btn bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="size-4"
@@ -428,7 +429,7 @@ const Blogs = () => {
 
 
                 {/* Side bar */}
-                <div className=" rounded-lg bg-[#E6E8EA] py-4 px-2 h-fit">
+                <div className=" rounded-lg order-1 bg-[#E6E8EA] py-4 px-2 h-fit">
                     <div>
                         <h3 className='text-xl p-2 font-bold'>
                             Filter By
@@ -436,13 +437,15 @@ const Blogs = () => {
                         <span className="flex items-center">
                             <span className="h-px flex-1 bg-white"></span>
                         </span>
-                        <div className='py-2 '>
+                        <div className='py-2 flex flex-col'>
                             {
                                 categorys.map((blogcategory, idx) => (
-                                    <div key={idx} className='flex justify-between p-2'>
-                                        <p>{blogcategory}</p>
-                                        <span className='p-1 bg-white rounded-full text-xs'>50</span>
-                                    </div>
+                                    <button key={idx}>
+                                        <div className='flex justify-between p-2'>
+                                            <p>{blogcategory}</p>
+                                            <span className='p-1 bg-white rounded-full text-xs'>50</span>
+                                        </div>
+                                    </button>
                                 ))
                             }
                         </div>
