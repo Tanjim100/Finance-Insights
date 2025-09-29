@@ -12,7 +12,7 @@ const ExploreTopics = () => {
 
         },
         {
-            logo: <img src="/src/assets/TopicLogo/calculator-svgrepo-com 2.png" alt="" />,
+            logo: <img src="/public/TopicLogo/calculator-svgrepo-com 2.png" alt="" />,
             title: "Accounting",
 
         },
