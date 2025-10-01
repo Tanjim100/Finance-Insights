@@ -13,7 +13,7 @@ const ExploreTopics = () => {
 
         },
         {
-            logo: <img src={accountingLogo} alt="" />,
+            logo: <img src="https://i.ibb.co.com/6cnQ1MWr/calculator-svgrepo-com-2.png" alt="" />,
             title: "Accounting",
 
         },
