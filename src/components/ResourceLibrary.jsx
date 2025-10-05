@@ -8,6 +8,7 @@ import { GiLightBulb } from 'react-icons/gi';
 import { MdOutlineFileDownload } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
+import AdminResourceCard from './AdminResourceCard';
 
 const ResourceLibrary = () => {
 
@@ -52,7 +53,7 @@ const ResourceLibrary = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
-                            <ResourceCard key={index} feature={feature}></ResourceCard>
+                            <AdminResourceCard key={index} feature={feature}></AdminResourceCard>
                         ))}
                     </div>
 

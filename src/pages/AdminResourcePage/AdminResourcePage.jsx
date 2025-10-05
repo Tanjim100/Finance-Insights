@@ -3,6 +3,7 @@ import HeaderTitle from '../../components/HeaderTitle';
 import { BsFileEarmarkPdf } from 'react-icons/bs';
 import ResourceLibrary from '../../components/ResourceLibrary';
 import ResourceCard from '../../components/ResourceCard';
+import AdminResourceCard from '../../components/AdminResourceCard';
 
 const AdminResoucePage = () => {
 
@@ -181,7 +182,7 @@ const AdminResoucePage = () => {
             <div className='items grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10'>
                 {
                     features.map((feature, idx) => (
-                        <ResourceCard key={idx} feature={feature}></ResourceCard>
+                        <AdminResourceCard key={idx} feature={feature}></AdminResourceCard>
                     ))
                 }
             </div>
