@@ -43,7 +43,7 @@ const Navbar = () => {
                 <div className='navbar-center pr-2'>
                     <div className='relative'>
                         <button><IoSearch className='absolute left-30 md:left-50 lg:left-70 bottom-2 z-10 text-2xl text-white' /></button>
-                        <input type="text" placeholder="Type here" className="input bg-transparent text-white w-40 md:w-60 border-white rounded-full lg:w-80 z-5 placeholder-white" />
+                        <input type="text" placeholder="Type here" className="input pr-12 bg-transparent text-white w-40 md:w-60 border-white rounded-full lg:w-80 z-5 placeholder-white" />
 
                     </div>
                 </div>

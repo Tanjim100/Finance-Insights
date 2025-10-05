@@ -4,6 +4,7 @@ import { BsFileEarmarkPdf } from 'react-icons/bs';
 import ResourceLibrary from '../../components/ResourceLibrary';
 import ResourceCard from '../../components/ResourceCard';
 import AdminResourceCard from '../../components/AdminResourceCard';
+import { IoSearch } from 'react-icons/io5';
 
 const AdminResoucePage = () => {
 
@@ -157,24 +158,12 @@ const AdminResoucePage = () => {
                     </div>
                 </div>
                 <div>
-                    <div>
-                        <label htmlFor="Headline">
-                            <select
-                                name="Headline"
-                                id="Headline"
-                                className="mt-0.5 w-full rounded-full p-2 border h-10 border-gray-800 shadow-sm sm:text-sm"
-                            >
-                                <option value="">Please select</option>
-                                <option value="JM">John Mayer</option>
-                                <option value="SRV">Stevie Ray Vaughn</option>
-                                <option value="JH">Jimi Hendrix</option>
-                                <option value="BBK">B.B King</option>
-                                <option value="AK">Albert King</option>
-                                <option value="BG">Buddy Guy</option>
-                                <option value="EC">Eric Clapton</option>
-                            </select>
-                        </label>
+                    <div className='relative my-2'>
+                        <button><IoSearch className='absolute left-30 md:left-50 lg:left-70 bottom-2 z-10 text-2xl' /></button>
+                        <input type="text" placeholder="Type here" className="input pr-12 bg-transparent w-40 md:w-60 border border-black rounded-full lg:w-80 z-5" />
+
                     </div>
+
 
                 </div>
             </div>
