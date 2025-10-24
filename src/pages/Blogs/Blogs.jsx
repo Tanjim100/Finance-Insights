@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogCard from '../../components/BlogCard';
 import HeaderTitle from '../../components/HeaderTitle';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { supabase } from '../../lib/supabase';
+import { getPublishedPosts } from '../../services/blogsAPI';
 // import button from 'daisyui/components/button';
 // import blogImage from '../../assets/BlogPic/futuristic-robot-interacting-with-money.jpg'
 
@@ -323,6 +326,27 @@ const Blogs = () => {
         }
     ];
 
+    const [myBlogs, setMyBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadBlogs = async () => {
+            try {
+                const posts = await getPublishedPosts();
+                console.log(posts);
+                setMyBlogs(posts);
+            } catch (err) {
+                console.error("Error fetching posts:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadBlogs();
+    }, []);
+
+    // console.log(myBlogs);
+
     const categorys = ["tax", "finance", "accounting", "banking", "industry"];
     const tags = ["tax planning", "audit", "compliance", "money", "investing", "stocks", "inflation"];
 
@@ -381,7 +405,7 @@ const Blogs = () => {
                     </div>
                     <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3'>
                         {
-                            blogs.map(blog => <BlogCard blog={blog} key={blog.id}></BlogCard>)
+                            myBlogs.map(blog => <BlogCard blog={blog} key={blog.id}></BlogCard>)
                         }
                     </div>
                     <div className='pagination flex justify-center gap-2 mt-12'>

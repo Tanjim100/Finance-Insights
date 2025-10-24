@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const BlogCard = ({blog}) => {
+const BlogCard = ({ blog }) => {
     const {
         id,
         title,
         tag,
-        category,
-        details,
-        publishedDate,
-        image,
+        categories,
+        description,
+        published_at,
+        header_image_url,
     } = blog;
+
+    
     return (
         <div>
             <article className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xs">
                 <img
                     alt=""
-                    src={image}
+                    src={header_image_url}
                     className="h-56 w-full object-cover"
                 />
 
                 <div className="p-4 sm:p-6">
-                    <h6 className='text-sm mb-3 text-gray-600'>{category}</h6>
+                    <h6 className='text-sm mb-3 text-gray-600'>{categories.name}</h6>
+                    {/* <h6 className='text-sm mb-3 text-gray-600'></h6> */}
                     <a href="#">
                         <h3 className="text-base md:text-lg font-medium text-gray-900">
                             {title}
@@ -28,11 +31,11 @@ const BlogCard = ({blog}) => {
                     </a>
 
                     <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                        {details}
+                        {description}
                     </p>
 
                     <div className="group mt-4 flex items-center gap-1 text-sm font-medium justify-between text-[#01101C]">
-                        <p>{publishedDate}</p>
+                        <p>{published_at}</p>
                         <a href="blog_id" className="inline-flex items-center gap-1 ">
                             Find out more
 

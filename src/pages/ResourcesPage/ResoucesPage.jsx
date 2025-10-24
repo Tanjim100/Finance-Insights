@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderTitle from '../../components/HeaderTitle';
 import { BsFileEarmarkPdf } from 'react-icons/bs';
 import ResourceLibrary from '../../components/ResourceLibrary';
 import ResourceCard from '../../components/ResourceCard';
+import { getPublishedResources } from '../../services/resourcesAPI';
 
 const ResoucesPage = () => {
 
@@ -83,6 +84,23 @@ const ResoucesPage = () => {
             description: "Collaborate, discuss, and grow with a vibrant community of enthusiasts and professionals."
         },
     ];
+
+    const [resources, setResources] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+    (async () => {
+      try {
+        const data = await getPublishedResources();
+        setResources(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error loading resources:", error);
+      }
+    })();
+  }, []);
+
+
 
 
     const [count, setCount] = useState(features.length);

@@ -4,7 +4,6 @@ import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import Layout from './components/Layout';
 import Home from './pages/Home/Home';
 import About from './pages/About';
-import Users from './pages/Users';
 import Blogs from './pages/Blogs/Blogs';
 import MainLayout from './layouts/MainLayout';
 import ResoucesPage from './pages/ResourcesPage/ResoucesPage';
