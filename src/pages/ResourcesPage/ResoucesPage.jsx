@@ -198,7 +198,7 @@ const ResoucesPage = () => {
             <div className='divider h-px bg-gray-300 mb-10'></div>
             <div className='items grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10'>
                 {
-                    features.map((feature, idx) => (
+                    resources.map((feature, idx) => (
                         <ResourceCard key={idx} feature={feature}></ResourceCard>
                     ))
                 }
