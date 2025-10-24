@@ -22,7 +22,7 @@ const BlogCard = ({ blog }) => {
                 />
 
                 <div className="p-4 sm:p-6">
-                    <h6 className='text-sm mb-3 text-gray-600'>{categories.name}</h6>
+                    <h6 className='text-sm mb-3 text-gray-600'>{categories.id}</h6>
                     {/* <h6 className='text-sm mb-3 text-gray-600'></h6> */}
                     <a href="#">
                         <h3 className="text-base md:text-lg font-medium text-gray-900">
