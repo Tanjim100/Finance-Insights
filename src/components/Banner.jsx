@@ -1,11 +1,12 @@
 import React from 'react';
 import banner1 from '../../public/BannerLogo/herosection asset 1-1.png';
 import banner2 from '../../public/BannerLogo/herosection asset 1.jpg'
+import banner3 from '../assets/BannerLogo/herosection asset 1.svg'
 
 const Banner = () => {
     return (
         <div>
-            <section className="bg-white lg:grid lg:h-screen  bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner2})` }}>
+            <section className="bg-white lg:grid lg:h-screen  bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
                 <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32 ">
                     <div className="max-w-prose h-80 text-left">
                         <h1 className="text-2xl font-bold text-gray-900 md:text-5xl">
