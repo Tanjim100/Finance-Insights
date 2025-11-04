@@ -29,7 +29,7 @@ const BlogCard = ({ blog }) => {
 
                 <div className="p-4 sm:p-6">
                     <div className='h-40'>
-                        <h6 className='text-sm mb-3 text-gray-600'>{categories.name}</h6>
+                        <h6 className='text-sm mb-2 text-gray-600'>{categories.name}</h6>
                         {/* <h6 className='text-sm mb-3 text-gray-600'></h6> */}
                         <a href="#">
                             <h3 className="text-base md:text-lg font-medium text-gray-900 line-clamp-2">
@@ -42,12 +42,12 @@ const BlogCard = ({ blog }) => {
                         </p>
                     </div>
 
-                    <div className="group mt-4 flex items-center gap-1 text-sm justify-between text-[#01101C]">
-                        <p>{formatted_published_date}</p>
+                    <div className="group mt-4 flex items-center gap-1 justify-between text-[#01101C]">
+                        <p className='text-xs'>{formatted_published_date}</p>
                         <a href="blog_id" className="inline-flex items-center gap-1 font-medium">
                             Read more
 
-                            <span aria-hidden="true" className="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+                            <span aria-hidden="true" className="text-sm block transition-all group-hover:ms-0.5 rtl:rotate-180">
                                 &rarr;
                             </span>
                         </a>
