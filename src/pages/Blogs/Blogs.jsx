@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import BlogCard from '../../components/BlogCard';
 import HeaderTitle from '../../components/HeaderTitle';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { supabase } from '../../lib/supabase';
-import { postsApi, tagsApi } from '../../services/blogsAPI';
+import { categoriesApi, postsApi, tagsApi } from '../../services/blogsAPI';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 // import button from 'daisyui/components/button';
 // import blogImage from '../../assets/BlogPic/futuristic-robot-interacting-with-money.jpg'
@@ -31,12 +31,48 @@ const Blogs = () => {
     });
 
 
-      console.log(tags);
+    const {
+        data: categorys = [],
+        isLoading: categoriesLoading,
+    } = useQuery({
+        queryKey: ['categories'],
+        queryFn: () => categoriesApi.getAll(),
+    })
+
+
+
+    const postCounts = useMemo(() => {
+        if (!myBlogs) return { categories: {}, tags: {} };
+
+        const categoryCounts = {};
+        const tagCounts = {};
+
+        myBlogs.forEach((post) => {
+            // Count categories
+            if (post.category_id) {
+                categoryCounts[post.category_id] =
+                    (categoryCounts[post.category_id] || 0) + 1;
+            }
+
+            // Count tags
+            if (post.post_tags) {
+                post.post_tags.forEach((pt) => {
+                    const tagId = pt.tags.id;
+                    tagCounts[tagId] = (tagCounts[tagId] || 0) + 1;
+                });
+            }
+        });
+
+        return { categories: categoryCounts, tags: tagCounts };
+    }, [myBlogs]);
+
+
+    //   console.log(categorys);
     //   console.log(tagsApi);
 
     // console.log(myBlogs);
 
-    const categorys = ["tax", "finance", "accounting", "banking", "industry"];
+    // const categorys = ["tax", "finance", "accounting", "banking", "industry"];
     // const tags = ["tax planning", "audit", "compliance", "money", "investing", "stocks", "inflation"];
 
     const [count, setCount] = useState(myBlogs.length);
@@ -156,8 +192,11 @@ const Blogs = () => {
                                 categorys.map((blogcategory, idx) => (
                                     <button key={idx}>
                                         <div className='flex justify-between p-2'>
-                                            <p>{blogcategory}</p>
-                                            <span className='p-1 bg-white rounded-full text-xs'>50</span>
+                                            <p className='text-start'>{blogcategory.name}</p>
+                                            <span className='w-8 h-8 py-2 bg-white rounded-full text-xs'>
+                                                {
+                                                    postCounts.categories?.[blogcategory.id] || 0
+                                                }</span>
                                         </div>
                                     </button>
                                 ))
