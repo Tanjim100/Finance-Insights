@@ -1,6 +1,5 @@
 import React from 'react';
-import banner1 from '../../public/BannerLogo/herosection asset 1-1.png';
-import banner2 from '../../public/BannerLogo/herosection asset 1.jpg'
+
 import banner3 from '../assets/BannerLogo/herosection asset 1.svg'
 
 const Banner = () => {

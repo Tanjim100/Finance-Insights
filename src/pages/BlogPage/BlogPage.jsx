@@ -1,7 +1,52 @@
 import React from 'react';
 import BlogCard from '../../components/BlogCard';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { postsApi } from '../../services/blogsAPI';
+import BlogContent from '../../components/BlogContent';
 
 const BlogPage = () => {
+    const { slug } = useParams();
+    console.log(slug);
+
+    const { data: blog, isLoading, error } = useQuery({
+        queryKey: ['post', slug],
+        queryFn: () => postsApi.getPostBySlug(slug),
+        enabled: !!slug,
+    });
+
+    console.log(blog, error);
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold text-gray-900 mb-2">Error Loading Post</h1>
+                    <p className="text-gray-600 mb-4">{error.message}</p>
+                </div>
+            </div>
+        );
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+        });
+    }
+
+
     const recentPosts = [
         {
             id: 14,
@@ -13,7 +58,7 @@ const BlogPage = () => {
             image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
-            id: 14,
+            id: 15,
             title: "AI-Powered Accounting: The Next Frontier",
             category: "accounting",
             tag: "compliance",
@@ -22,7 +67,7 @@ const BlogPage = () => {
             image: "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg"
         },
         {
-            id: 14,
+            id: 16,
             title: "AI-Powered Accounting: The Next Frontier",
             category: "accounting",
             tag: "compliance",
@@ -38,7 +83,7 @@ const BlogPage = () => {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
 
                 {/* Side Bar  */}
-                <div className=" rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 md:order-1">
+                <div className=" rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 lg:order-1">
                     <div>
                         <h3 className='text-xl pb-4 font-bold'>
                             Recent Posts
@@ -46,7 +91,7 @@ const BlogPage = () => {
                         <span className="flex items-center">
                             <span className="h-px flex-1 bg-white"></span>
                         </span>
-                        <div className='py-2 space-y-2'>
+                        {/* <div className='py-2 space-y-2'>
                             {
                                 recentPosts.map((post, idx) => (
                                     <div key={idx} className='p-2 space-y-1'>
@@ -55,7 +100,7 @@ const BlogPage = () => {
                                     </div>
                                 ))
                             }
-                        </div>
+                        </div> */}
                     </div>
                     <div>
                         <h3 className='text-xl pb-4 font-bold'>
@@ -69,8 +114,8 @@ const BlogPage = () => {
                                 categorys.map((blogcategory, idx) => (
                                     <button key={idx}>
                                         <div className='py-1'>
-                                        <p className='font-semibold text-left'>{blogcategory}</p>
-                                    </div>
+                                            <p className='font-semibold text-left'>{blogcategory}</p>
+                                        </div>
                                     </button>
                                 ))
                             }
@@ -87,7 +132,7 @@ const BlogPage = () => {
                             {
                                 tags.map((tag, idx) => (
                                     <button key={idx} className="btn btn-outline border-none rounded-full bg-white hover:bg-black m-2">{tag}</button>
-                                    
+
                                 ))
                             }
                         </div>
@@ -96,24 +141,24 @@ const BlogPage = () => {
 
 
 
-                            {/* Blog Bar  */}
-                <div className=" rounded-lg lg:col-span-3 order-1 md:order-2">
-                    <h3 className='text-3xl font-bold text-[#01101C]'>AI-Powered Accounting: The Next Frontier</h3>
+                {/* Blog Bar  */}
+                <div className=" rounded-lg lg:col-span-3 order-1 lg:order-2">
+                    <h3 className='text-3xl font-bold text-[#01101C]'>{blog?.title}</h3>
                     {/* <p className='text-xl my-2'>Stay Ahead of New Regulations</p> */}
-                    <p className="text-[#01101C] my-2 font-[400] italic text-[20px] leading-[120%] tracking-[0.6px] font-serif">Stay Ahead of New Regulations</p>
+                    <p className="text-[#01101C] my-2 font-[400] italic text-[20px] leading-[120%] tracking-[0.6px] font-serif">{blog?.description}</p>
                     <div className='my-2 flex justify-between'>
                         <div className='flex gap-8'>
                             <div className='flex items-center gap-2'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                                     <path d="M0.708333 14.5833H13.4583C13.6462 14.5833 13.8264 14.5087 13.9592 14.3759C14.092 14.243 14.1667 14.0629 14.1667 13.875V3.25C14.1667 3.06214 14.092 2.88197 13.9592 2.74913C13.8264 2.61629 13.6462 2.54166 13.4583 2.54166H10.625V1.125C10.625 0.937136 10.5504 0.756968 10.4175 0.62413C10.2847 0.491292 10.1045 0.416664 9.91667 0.416664C9.7288 0.416664 9.54864 0.491292 9.4158 0.62413C9.28296 0.756968 9.20833 0.937136 9.20833 1.125V2.54166H4.95833V1.125C4.95833 0.937136 4.8837 0.756968 4.75087 0.62413C4.61803 0.491292 4.43786 0.416664 4.25 0.416664C4.06214 0.416664 3.88197 0.491292 3.74913 0.62413C3.61629 0.756968 3.54167 0.937136 3.54167 1.125V2.54166H0.708333C0.520472 2.54166 0.340304 2.61629 0.207466 2.74913C0.0746277 2.88197 0 3.06214 0 3.25V13.875C0 14.0629 0.0746277 14.243 0.207466 14.3759C0.340304 14.5087 0.520472 14.5833 0.708333 14.5833ZM1.41667 3.95833H12.75V6.08333H1.41667V3.95833ZM1.41667 7.5H12.75V13.1667H1.41667V7.5Z" fill="#55636F" />
                                 </svg>
-                                <p>pubished date</p>
+                                <p>{formatDate(blog?.published_at)}</p>
                             </div>
                             <div className='flex items-center gap-2'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
                                     <path d="M1.16663 3.78571C1.16663 2.98564 1.16663 2.5856 1.32235 2.28001C1.45931 2.01121 1.67787 1.79266 1.9467 1.65571C2.25231 1.5 2.65239 1.5 3.45252 1.5H5.93451C6.28395 1.5 6.45868 1.5 6.62312 1.53947C6.76885 1.57446 6.90822 1.63219 7.03609 1.71051C7.18024 1.79886 7.30382 1.92239 7.55091 2.16947L7.64049 2.2591C7.88758 2.50618 8.01116 2.62971 8.15532 2.71806C8.28318 2.79639 8.42255 2.85411 8.56828 2.8891C8.73272 2.92857 8.90745 2.92857 9.2569 2.92857H11.7389C12.539 2.92857 12.9391 2.92857 13.2447 3.08428C13.5135 3.22124 13.7321 3.43978 13.869 3.70859C14.0248 4.01417 14.0248 4.41421 14.0248 5.21429V9.21429C14.0248 10.0144 14.0248 10.4144 13.869 10.72C13.7321 10.9888 13.5135 11.2074 13.2447 11.3443C12.9391 11.5 12.539 11.5 11.7389 11.5H3.45252C2.65238 11.5 2.25231 11.5 1.9467 11.3443C1.67787 11.2074 1.45931 10.9888 1.32235 10.72C1.16663 10.4144 1.16663 10.0144 1.16663 9.21429V3.78571Z" stroke="#55636F" stroke-width="1.11814" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                <p>category</p>
+                                <p>{blog.categories?.name}</p>
                             </div>
                             <div className='flex items-center gap-2'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
@@ -124,27 +169,17 @@ const BlogPage = () => {
                                 <p>tags</p>
                             </div>
                         </div>
-                        <p>updated date</p>
+                        <p>{formatDate(blog?.updated_at)}</p>
                     </div>
                     <div>
                         <img
                             alt=""
-                            src="/src/assets/BlogPic/futuristic-robot-interacting-with-money.jpg"
+                            src={blog?.header_image_url}
                             className=" w-full object-cover border"
                         />
                     </div>
                     <div className="text-[#01101C] font-[400] text-[18px] leading-[170%] tracking-[0.54px] font-serif space-y-10 mt-8" >
-                        <p>
-                            As we approach the 2025 tax season, professionals, business owners, and accountants must navigate a series of significant updates to stay compliant and maximize financial opportunities. This year’s changes, driven by economic shifts like rising inflation and evolving policy priorities, affect both corporate and individual taxpayers, offering new opportunities alongside stricter compliance requirements. For businesses, the corporate tax rate has increased to 25% for companies generating over $10 million in annual revenue, effective January 2025, a move aimed at funding infrastructure and social programs. Smaller businesses, however, benefit from a temporary 20% rate, designed to encourage growth and innovation, particularly in sectors like technology and green energy.
-                        </p>
-
-                        <p>A notable addition is the introduction of tax credits for sustainable practices, offering up to $50,000 for investments in eco-friendly equipment or renewable energy initiatives, which accountants should prioritize when advising clients to optimize their filings. Individuals, meanwhile, can take advantage of an expanded home office deduction, now capped at $2,500, reflecting the continued trend of remote work. This deduction is particularly valuable for freelancers and consultants in the finance industry, who can claim expenses for dedicated workspaces, provided they maintain detailed records. A new education credit of $1,000 also supports professionals pursuing certifications, such as CPA or CFA exams, as well as students in finance-related fields, making it easier to invest in career development.</p>
-
-                        <p>However, compliance has tightened, with the IRS introducing stricter documentation requirements for charitable contributions, requiring receipts and appraisals for donations exceeding $500. This change aims to curb overstated deductions but adds complexity to individual filings, so meticulous record-keeping is essential. Businesses face similar challenges, as the IRS has increased scrutiny on expense reporting, particularly for travel and entertainment deductions, which now require digital logs or software-backed verification. To navigate these updates effectively, professionals should leverage accounting software to streamline tracking of deductions and credits, ensuring accuracy and reducing the risk of audits. Regular reviews of financial records throughout the year, rather than at tax time, can catch discrepancies early, especially for businesses claiming the new sustainability credits. Consulting a tax professional early in the fiscal year is also critical, as strategic planning can uncover opportunities to offset the higher corporate rates with targeted deductions. For instance, small businesses can combine the reduced rate with credits to significantly lower their tax burden.</p>
-
-                        <p>
-                            Inflation, a persistent concern in 2025, also impacts tax planning, as rising costs may push individuals and businesses into higher tax brackets, necessitating proactive adjustments to withholding or estimated payments. To assist with compliance, we’ve created a free downloadable PDF, “2025 Tax Compliance Checklist,” which outlines key steps for preparing accurate filings. This resource is particularly useful for accountants managing multiple clients or businesses handling complex returns. By staying informed and proactive, professionals can turn these regulatory changes into opportunities, ensuring compliance while maximizing savings in an evolving economic landscape. Share this post with colleagues to spread the word about navigating the 2025 tax season successfully.
-                        </p>
+                        <BlogContent content={blog?.content}></BlogContent>
                     </div>
                     <div className='h-px bg-[#E6E8EA] my-8'></div>
                     <div className='share space-y-3 mb-5'>
@@ -175,11 +210,11 @@ const BlogPage = () => {
                     </div>
                     <div className='space-y-6 my-10'>
                         <h4 className='text-2xl font-bold text-[#01101C]'>Related Posts</h4>
-                        <div className='related-posts grid grid-cols-1 md:grid-cols-3 gap-5'>
+                        {/* <div className='related-posts grid grid-cols-1 md:grid-cols-3 gap-5'>
                             {
                                 recentPosts.map(post => <BlogCard key={post.id} blog={post}></BlogCard>)
                             }
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

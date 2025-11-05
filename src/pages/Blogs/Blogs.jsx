@@ -39,6 +39,8 @@ const Blogs = () => {
         queryFn: () => categoriesApi.getAll(),
     })
 
+    console.log(myBlogs);
+
 
 
     const postCounts = useMemo(() => {

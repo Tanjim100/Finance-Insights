@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const BlogCard = ({ blog }) => {
     const {
@@ -7,6 +8,7 @@ const BlogCard = ({ blog }) => {
         tag,
         categories,
         description,
+        slug,
         published_at,
         header_image_url,
     } = blog;
@@ -44,13 +46,13 @@ const BlogCard = ({ blog }) => {
 
                     <div className="group mt-4 flex items-center gap-1 justify-between text-[#01101C]">
                         <p className='text-xs'>{formatted_published_date}</p>
-                        <a href="blog_id" className="inline-flex items-center gap-1 font-medium">
+                        <Link to={`/blogs/${slug}`} className="inline-flex items-center gap-1 font-medium">
                             Read more
 
                             <span aria-hidden="true" className="text-sm block transition-all group-hover:ms-0.5 rtl:rotate-180">
                                 &rarr;
                             </span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </article>

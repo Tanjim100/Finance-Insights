@@ -216,6 +216,7 @@ export const postsApi = {
 
   // Get single post by slug (public view - only published posts)
   async getPostBySlug(slug) {
+    // console.log('Fetching post by slug:', slug);
     const { data, error } = await supabase
       .from("posts")
       .select(
@@ -240,6 +241,7 @@ export const postsApi = {
       .single();
 
     if (error) throw error;
+    // console.log(data);
     return data;
   },
 
