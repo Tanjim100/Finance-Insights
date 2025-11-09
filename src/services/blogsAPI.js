@@ -161,6 +161,11 @@ export const storageApi = {
 export const postsApi = {
   // Get all published posts for homepage
   async getPublishedPosts() {
+
+    // const from = (page - 1) * limit;
+    // const to = from + limit - 1;
+
+    console.log('post called');
     const { data, error } = await supabase
       .from("posts")
       .select(
@@ -181,9 +186,49 @@ export const postsApi = {
       `
       )
       .eq("published", true)
-      .order("published_at", { ascending: false });
+      .order("published_at", { ascending: false })
+      // .range(from, to);
 
     if (error) throw error;
+    console.log(data);
+    return data;
+  },
+
+
+  // counts total number of posts
+  async getTotalPublishedPosts() {
+    const { count, error } = await supabase
+      .from("posts")
+      .select('*', { count: "exact", head: true }) // ✅ count only, no data
+      .eq("published", true);
+
+    if (error) throw error;
+    return count; // return the number only
+  },
+
+  // 6 most featured or latest blogs
+  async getFeaturedPosts() {
+    const { data, error } = await supabase
+      .from("posts")
+      .select(`
+        id,
+        title,
+        categories (
+          id,
+          name,
+          slug
+        ),
+        description,
+        slug,
+        published_at,
+        header_image_url
+      `)
+      .eq("published", true)
+      .order("created_at", { ascending: false })
+      .limit(4);
+
+    if (error) throw error;
+    console.log(data);
     return data;
   },
 

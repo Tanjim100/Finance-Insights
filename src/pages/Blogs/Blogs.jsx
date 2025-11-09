@@ -11,11 +11,15 @@ import { IoSearch } from 'react-icons/io5';
 
 const Blogs = () => {
 
-    const queryClient = useQueryClient();
+    // const queryClient = useQueryClient();
 
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedTags, setSelectedTags] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const [sortBy, setSortBy] = useState("newest");
+
+    const [itemsPerPage, setItemPerPage] = useState(6);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const {
         data: blogs = [],
@@ -25,6 +29,18 @@ const Blogs = () => {
         queryKey: ["publishedPosts"],
         queryFn: () => postsApi.getPublishedPosts(),
     });
+
+    const {
+        data: totalPosts,
+        isLoading: totalPostsLoading,
+        error: totalPostsError,
+    } = useQuery({
+        queryKey: ["totalPublishedPosts"], // unique key
+        queryFn: postsApi.getTotalPublishedPosts, // call the API function
+    });
+
+    // const [blogs, setBlogs] = useState(data);
+    // console.log(totalPosts);
 
     const {
         data: tags = [],
@@ -44,7 +60,7 @@ const Blogs = () => {
         queryFn: () => categoriesApi.getAll(),
     })
 
-    console.log(blogs);
+    // console.log(blogs);
 
 
 
@@ -96,6 +112,16 @@ const Blogs = () => {
             });
         }
 
+        //  Search Filter (supports title and description)
+        if (searchQuery.trim() !== "") {
+            const q = searchQuery.toLowerCase();
+            filtered = filtered.filter(
+                (post) =>
+                    post.title?.toLowerCase().includes(q) ||
+                    post.description?.toLowerCase().includes(q)
+            );
+        }
+
         // Sort posts
         filtered.sort((a, b) => {
             if (sortBy === "newest") {
@@ -113,7 +139,7 @@ const Blogs = () => {
         });
 
         return filtered;
-    }, [blogs, selectedCategory, selectedTags, sortBy]);
+    }, [blogs, selectedCategory, selectedTags, sortBy, searchQuery]);
 
 
     //   console.log(categorys);
@@ -124,12 +150,11 @@ const Blogs = () => {
     // const categorys = ["tax", "finance", "accounting", "banking", "industry"];
     // const tags = ["tax planning", "audit", "compliance", "money", "investing", "stocks", "inflation"];
 
-    const [count, setCount] = useState(blogs.length);
+    // const [bcount, setCount] = useState(5);
 
-    const [itemsPerPage, setItemPerPage] = useState(6);
-    const numberOfPages = Math.ceil(count / itemsPerPage);
 
-    const [currentPage, setCurrentPage] = useState(0);
+    const numberOfPages = Math.ceil(20 / itemsPerPage);
+
 
     const pages = [...Array(numberOfPages).keys()];
 
@@ -179,7 +204,13 @@ const Blogs = () => {
                     <div className='flex justify-between mb-5 items-end'>
                         <div className='relative'>
                             <button><IoSearch className='absolute left-90 bottom-2 z-10 text-2xl text-black' /></button>
-                            <input type="text" placeholder="Type here" className="input pr-12 bg-transparent text-white border-black rounded-full w-100 z-5 placeholder-black" />
+                            <input
+                                type="text"
+                                placeholder="Search Blogs"
+                                className="input pr-12 bg-transparent border-black rounded-full w-100 z-5 placeholder-black"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
 
                         </div>
                         <div>
@@ -210,8 +241,8 @@ const Blogs = () => {
 
                     {/* Loading State */}
                     {blogsLoading && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {[1, 2, 3, 4].map((i) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <div
                                     key={i}
                                     className="animate-pulse"
@@ -341,46 +372,52 @@ const Blogs = () => {
                         </div>
                     )}
 
-                    <div className='pagination flex justify-center gap-2 mt-12'>
-                        {/* <p>Current Page: {currentPage}</p> */}
-                        <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="size-4"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
-                        </button>
-                        {
-                            pages.map(page => <button className={`btn btn-xs md:btn-md border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
-                        }
-                        <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="size-4"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
-                        </button>
-                        {/* <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+
+                    {/* Pagination  */}
+                    {
+                        (filteredAndSortedPosts.length > itemsPerPage) && (
+                            <div className='pagination flex justify-center gap-2 mt-12'>
+                                {/* <p>Current Page: {currentPage}</p> */}
+                                <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handleprev}>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="size-4"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                {
+                                    pages.map(page => <button className={`btn btn-xs md:btn-md border-none shadow-none ${(page == currentPage) ? `bg-black text-white` : `bg-[#E6E8EA] text-black`}`} key={page} onClick={() => setCurrentPage(page)}>{page + 1}</button>)
+                                }
+                                <button className='btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none' onClick={handlenext}>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="size-4"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                {/* <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="50">50</option>
                         </select> */}
-                    </div>
+                            </div>
+                        )
+                    }
 
                 </div>
 
@@ -496,6 +533,8 @@ const Blogs = () => {
             </div>
         </div>
     );
+
+
 };
 
 export default Blogs;

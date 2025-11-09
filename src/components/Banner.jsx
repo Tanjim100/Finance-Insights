@@ -1,15 +1,16 @@
 import React from 'react';
 
 import banner3 from '../assets/BannerLogo/herosection asset 1.svg'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
         <div>
-            <section className="bg-white lg:grid lg:h-screen  bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
-                <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32 ">
+            <section className="bg-white lg:grid lg:h-screen border bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
+                <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-16 lg:px-8 lg:py-20 ">
                     <div className="max-w-prose h-80 text-left">
                         <h1 className="text-2xl font-bold text-gray-900 md:text-5xl">
-                            Expert Insights on Finance,
+                            Expert Insights on Finance,<br />
                             <strong className="text-[#01101C]"> Accounting </strong>
                             and Beyond
                         </h1>
@@ -19,16 +20,16 @@ const Banner = () => {
                         </p>
 
                         <div className="mt-4 flex gap-4 sm:mt-6">
-                            <a href="#" className='btn btn-sm rounded-full md:btn-lg'>
+                            <Link to="/blogs" className='btn btn-sm rounded-full md:btn-lg'>
                                 <span className='mx-2'>Explore Posts</span>
-                            </a>
+                            </Link>
 
-                            <a
+                            <Link
                                 className="btn btn-sm btn-outline rounded-full md:btn-lg"
-                                href="#"
+                                to ="/about"
                             >
                                 <span className='mx-2'>About Me</span>
-                            </a>
+                            </Link>
                             
                         </div>
                     </div>

@@ -1,4 +1,7 @@
 import React from 'react';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import BlogCard from '../../components/BlogCard';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -166,7 +169,11 @@ const BlogPage = () => {
                                     <path d="M6.5323 12.4719L4.83262 13.3214C3.99842 13.7383 2.98405 13.4003 2.56695 12.5665C2.54054 12.5137 2.51692 12.4596 2.49619 12.4043L1.13267 8.76986C0.839031 7.98717 1.16272 7.10755 1.89376 6.70159L8.22103 3.18798" stroke="#55636F" stroke-width="1.34602" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M12.8655 3.1879C13.0986 3.1881 13.2872 3.37718 13.2874 3.60978C13.2874 3.84249 13.0987 4.03146 12.8655 4.03165C12.6321 4.03165 12.4426 3.84261 12.4426 3.60978C12.4428 3.37706 12.6322 3.1879 12.8655 3.1879Z" fill="#55636F" stroke="#55636F" stroke-width="0.844195" />
                                 </svg>
-                                <p>tags</p>
+
+                                {
+                                    (blog.post_tags.length > 0) && blog?.post_tags.map((tag, idx) => <span key={idx}>{tag}</span>)
+                                }
+
                             </div>
                         </div>
                         <p>{formatDate(blog?.updated_at)}</p>
@@ -179,7 +186,7 @@ const BlogPage = () => {
                         />
                     </div>
                     <div className="text-[#01101C] font-[400] text-[18px] leading-[170%] tracking-[0.54px] font-serif space-y-10 mt-8" >
-                        <BlogContent content={blog?.content}></BlogContent>
+                        <BlogContent content={blog.content}></BlogContent>
                     </div>
                     <div className='h-px bg-[#E6E8EA] my-8'></div>
                     <div className='share space-y-3 mb-5'>
@@ -188,7 +195,7 @@ const BlogPage = () => {
                             <a className='p-3 bg-[#E6E8EA] rounded-full'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="19"
+                                    width="17"
                                     height="17"
                                     viewBox="0 0 19 17"
                                     className=''
@@ -197,12 +204,12 @@ const BlogPage = () => {
                                 </svg>
                             </a>
                             <a className='p-3 bg-[#E6E8EA] rounded-full'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 19 17" fill="none">
                                     <path d="M0.157837 1.97487C0.157837 1.40247 0.362323 0.930245 0.771279 0.558203C1.18023 0.186143 1.7119 0.00012207 2.36623 0.00012207C3.00889 0.00012207 3.52884 0.183276 3.92612 0.549617C4.33508 0.927395 4.53957 1.41964 4.53957 2.02638C4.53957 2.57588 4.34093 3.03378 3.94365 3.40012C3.5347 3.7779 2.9972 3.96679 2.33117 3.96679H2.31365C1.67099 3.96679 1.15103 3.7779 0.753752 3.40012C0.356469 3.02234 0.157837 2.54725 0.157837 1.97487ZM0.385687 17.0001V5.52941H4.27666V17.0001H0.385687ZM6.43247 17.0001H10.3234V10.5951C10.3234 10.1944 10.3702 9.88529 10.4637 9.6678C10.6272 9.27857 10.8755 8.94944 11.2086 8.68042C11.5416 8.4114 11.9593 8.27689 12.4617 8.27689C13.7704 8.27689 14.4247 9.14119 14.4247 10.8698V17.0001H18.3157V10.4234C18.3157 8.72907 17.9068 7.44406 17.0888 6.5683C16.2709 5.69255 15.1901 5.25467 13.8464 5.25467C12.339 5.25467 11.1647 5.89002 10.3234 7.16073V7.19507H10.3059L10.3234 7.16073V5.52941H6.43247C6.45584 5.89574 6.46753 7.03479 6.46753 8.94659C6.46753 10.8584 6.45584 13.5429 6.43247 17.0001Z" fill="#01101C" />
                                 </svg>
                             </a>
                             <a className='p-3 bg-[#E6E8EA] rounded-full'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 13 17" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4737 5.84387H7.91447V3.71887C7.91447 3.43708 8.07459 3.16683 8.35959 2.96757C8.6446 2.76831 9.03115 2.65637 9.43421 2.65637H10.9539V0.00012207H7.91447C6.7053 0.00012207 5.54565 0.335947 4.69063 0.933719C3.83561 1.53149 3.35527 2.34224 3.35527 3.18762V5.84387H0.315796V8.50012H3.35527V17.0001H7.91447V8.50012H10.9539L12.4737 5.84387Z" fill="#01101C" />
                                 </svg>
                             </a>

@@ -33,11 +33,11 @@ const BlogCard = ({ blog }) => {
                     <div className='h-40'>
                         <h6 className='text-sm mb-2 text-gray-600'>{categories.name}</h6>
                         {/* <h6 className='text-sm mb-3 text-gray-600'></h6> */}
-                        <a href="#">
+                        {/* <a href="#"> */}
                             <h3 className="text-base md:text-lg font-medium text-gray-900 line-clamp-2">
                                 {title}
                             </h3>
-                        </a>
+                        {/* </a> */}
 
                         <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
                             {description}
