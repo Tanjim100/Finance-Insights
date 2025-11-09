@@ -9,41 +9,52 @@ import { MdOutlineFileDownload } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
 import AdminResourceCard from './AdminResourceCard';
+import { useQuery } from '@tanstack/react-query';
+import { resourcesApi } from '../services/resourcesAPI';
 
 const ResourceLibrary = () => {
+    const {
+        data: features = [],
+        isLoading,
+    } = useQuery ({
+        queryKey: ["featured-Resources"],
+        queryFn: () => resourcesApi.getFeaturedResources(),
+    })
 
-    const features = [
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Student Exam Suggestions",
-            description: "Access our extensive library of pre-tested components and integrate them seamlessly into your projects."
-        },
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Financial Planning Guide",
-            description: "Purchase quality-assured components or sell your own creations in our marketplace."
-        },
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Investment Strategies",
-            description: "Get expert guidance and support for your robotics projects from ideation to execution."
-        },
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Market Analysis Report",
-            description: "Enhance your skills with our interactive workshops and comprehensive learning resources."
-        },
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Tax Planning Checklist",
-            description: "Collaborate, discuss, and grow with a vibrant community of enthusiasts and professionals."
-        },
-        {
-            icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
-            title: "Retirement Planning Worksheet",
-            description: "Collaborate, discuss, and grow with a vibrant community of enthusiasts and professionals."
-        },
-    ];
+    console.log(features);
+
+    // const features = [
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Student Exam Suggestions",
+    //         description: "Access our extensive library of pre-tested components and integrate them seamlessly into your projects."
+    //     },
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Financial Planning Guide",
+    //         description: "Purchase quality-assured components or sell your own creations in our marketplace."
+    //     },
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Investment Strategies",
+    //         description: "Get expert guidance and support for your robotics projects from ideation to execution."
+    //     },
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Market Analysis Report",
+    //         description: "Enhance your skills with our interactive workshops and comprehensive learning resources."
+    //     },
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Tax Planning Checklist",
+    //         description: "Collaborate, discuss, and grow with a vibrant community of enthusiasts and professionals."
+    //     },
+    //     {
+    //         icon: <BsFileEarmarkPdf className="w-6 h-6 text-gray-800" />,
+    //         title: "Retirement Planning Worksheet",
+    //         description: "Collaborate, discuss, and grow with a vibrant community of enthusiasts and professionals."
+    //     },
+    // ];
 
     return (
         <div>
@@ -52,8 +63,8 @@ const ResourceLibrary = () => {
                     <h2 className='text-xl lg:text-2xl font-bold mb-8'>Resource Library</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {features.map((feature, index) => (
-                            <AdminResourceCard key={index} feature={feature}></AdminResourceCard>
+                        {features.map((resource) => (
+                            <ResourceCard key={resource.id} resource={resource}></ResourceCard>
                         ))}
                     </div>
 
