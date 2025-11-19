@@ -1,12 +1,6 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import BlogCard from "../../components/BlogCard";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { postsApi } from "../../services/blogsAPI";
-import BlogContent from "../../components/BlogContent";
 import Sidebar from "./Sidebar";
 import BlogBar from "./BlogBar";
 
@@ -79,7 +73,7 @@ const BlogPage = () => {
         "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
     },
   ];
-  const categorys = [
+  const categories = [
     "tax",
     "finance",
     "accounting",
@@ -103,10 +97,17 @@ const BlogPage = () => {
     <div className="max-w-7xl mx-auto my-10 px-5">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
         {/* Side Bar  */}
-        <Sidebar recentPosts={recentPosts} categorys={categorys} tags={tags} />
+        <Sidebar
+          recentPosts={recentPosts}
+          categories={categories}
+          tags={tags}
+        />
 
         {/* Blog Bar  */}
-        <BlogBar blog={blog} recentPosts={recentPosts} />
+        <BlogBar
+          blog={blog}
+          recentPosts={recentPosts}
+        />
       </div>
     </div>
   );
