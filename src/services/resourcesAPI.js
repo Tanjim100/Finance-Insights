@@ -18,25 +18,21 @@ export const resourceStorageApi = {
   // async uploadFile(file) {
   //   const { user } = (await supabase.auth.getUser()).data;
   //   if (!user) throw new Error("User not authenticated");
-
   //   // Validate file type
   //   if (!ALLOWED_DOCUMENT_TYPES.includes(file.type)) {
   //     throw new Error(
   //       "Invalid file type. Allowed types: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, MD, ZIP"
   //     );
   //   }
-
   //   // Validate file size
   //   if (file.size > MAX_DOCUMENT_SIZE) {
   //     throw new Error("File size too large. Maximum size is 50MB");
   //   }
-
   //   // Generate unique filename
   //   const fileExt = getFileExtension(file.name);
   //   const fileName = `${user.id}/${Date.now()}-${Math.random()
   //     .toString(36)
   //     .substring(7)}.${fileExt}`;
-
   //   // Upload to Supabase Storage
   //   const { data, error } = await supabase.storage
   //     .from("resource-files")
@@ -44,14 +40,11 @@ export const resourceStorageApi = {
   //       cacheControl: "3600",
   //       upsert: false,
   //     });
-
   //   if (error) throw error;
-
   //   // Get public URL
   //   const {
   //     data: { publicUrl },
   //   } = supabase.storage.from("resource-files").getPublicUrl(data.path);
-
   //   return {
   //     url: publicUrl,
   //     path: data.path,
@@ -60,23 +53,18 @@ export const resourceStorageApi = {
   //     fileSize: file.size,
   //   };
   // },
-
   // Delete resource file from Supabase Storage
   // async deleteFile(fileUrl) {
   //   if (!fileUrl) return;
-
   //   try {
   //     // Extract path from URL
   //     const url = new URL(fileUrl);
   //     const pathMatch = url.pathname.match(/\/resource-files\/(.+)/);
-
   //     if (pathMatch && pathMatch[1]) {
   //       const filePath = pathMatch[1];
-
   //       const { error } = await supabase.storage
   //         .from("resource-files")
   //         .remove([filePath]);
-
   //       if (error) throw error;
   //     }
   //   } catch (error) {
@@ -119,18 +107,19 @@ export const resourcesApi = {
   async getFeaturedResources() {
     const { data, error } = await supabase
       .from("resources")
-      .select(`
+      .select(
+        `
         id,
         title,
         description,
         file_url
-      `)
+      `
+      )
       .eq("published", true)
       .order("created_at", { ascending: false })
-      .limit(3);
+      .limit(6);
 
     if (error) throw error;
-    console.log(data);
     return data;
   },
 
@@ -330,9 +319,9 @@ export const resourcesApi = {
   //     tag_id: tagId,
   //   }));
 
-    // const { error } = await supabase.from("resource_tags").insert(tagInserts);
+  // const { error } = await supabase.from("resource_tags").insert(tagInserts);
 
-    // if (error) throw error;
+  // if (error) throw error;
   // },
 
   // Remove all tags from resource
