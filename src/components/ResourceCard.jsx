@@ -18,7 +18,7 @@ const ResourceCard = ({ resource }) => {
         to={`${file_url}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn mt-4 w-fit hover:underline bg-none hover:bg-transparent border-none hover:border-none hover:shadow-none underline-offset-4 duration-300"
+        className="btn mt-4 w-fit hover:underline bg-transparent hover:bg-transparent border-none hover:border-none hover:shadow-none underline-offset-4 duration-300"
       >
         <MdOutlineFileDownload /> Download
       </Link>
