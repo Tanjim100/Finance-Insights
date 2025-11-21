@@ -19,34 +19,34 @@ const BlogCard = ({ blog }) => {
 
   return (
     <div>
-      <article className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xs ">
+      <article className="overflow-hidden rounded-2xl border border-[#E6E8EA] bg-white shadow-xs p-3 ">
         <img
           alt=""
           src={header_image_url}
-          className="h-56 w-full object-cover"
+          className="h-40 w-full object-cover rounded-xl mb-5"
         />
 
-        <div className="p-4 sm:p-6">
+        <div className="">
           <div className="h-40">
-            <h6 className="text-sm mb-2 text-gray-600">{categories?.name}</h6>
+            <h6 className="text-sm mb-2 text-[#01101C]">{categories?.name}</h6>
 
-            <h3 className="text-base md:text-lg font-medium text-gray-900 line-clamp-2">
+            <h3 className="text-base md:text-lg font-semibold text[#01101C] line-clamp-2 mb-2 ">
               {title}
             </h3>
             {/* </a> */}
 
-            <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+            <p className="mt-2 line-clamp-3 text-sm/relaxed text-[#55636F] font-serif  font-normal tracking-[0.48px]">
               {description}
             </p>
           </div>
 
-          <div className="group mt-4 flex items-center gap-1 justify-between text-[#01101C]">
-            <p className="text-xs">{formatted_published_date}</p>
+          <div className="group mt-4 flex items-center gap-1 justify-between">
+            <p className="text-xs text-[#55636F]">{formatted_published_date}</p>
             <Link
               to={`/blogs/${slug}`}
-              className="inline-flex items-center gap-1 font-medium"
+              className="inline-flex items-center gap-1 font-medium text-[#01101C]"
             >
-              Read more
+              Read More
               <span
                 aria-hidden="true"
                 className="text-sm block transition-all group-hover:ms-0.5 rtl:rotate-180"

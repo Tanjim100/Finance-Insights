@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -7,6 +8,7 @@
     @apply antialiased bg-gray-50 text-gray-900;
     /* font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace; */
     font-family: "Montserrat", sans-serif;
+    
   }
 }
 
