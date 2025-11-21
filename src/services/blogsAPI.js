@@ -207,6 +207,31 @@ export const postsApi = {
   },
 
   // 6 most featured or latest blogs
+  async getRecentPosts() {
+    const { data, error } = await supabase
+      .from("posts")
+      .select(`
+        id,
+        title,
+        categories (
+          id,
+          name,
+          slug
+        ),
+        description,
+        slug,
+        published_at,
+        header_image_url
+      `)
+      .eq("published", true)
+      .order("created_at", { ascending: false })
+      .limit(3);
+
+    if (error) throw error;
+    console.log(data);
+    return data;
+  },
+
   async getFeaturedPosts() {
     const { data, error } = await supabase
       .from("posts")

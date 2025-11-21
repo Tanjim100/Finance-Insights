@@ -16,6 +16,16 @@ const BlogPage = () => {
     queryFn: () => postsApi.getPostBySlug(slug),
     enabled: !!slug,
   });
+  const {
+    data: recentBlogs,
+    isLoading: recentBlogsLoading,
+    error: recentBlogsError,
+  } = useQuery({
+    queryKey: ["recentPosts"],
+    queryFn: () => postsApi.getRecentPosts(),
+  });
+
+  console.log(recentBlogs);
 
   if (isLoading) {
     return (
@@ -98,7 +108,7 @@ const BlogPage = () => {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
         {/* Side Bar  */}
         <Sidebar
-          recentPosts={recentPosts}
+          recentPosts={recentBlogs}
           categories={categories}
           tags={tags}
         />

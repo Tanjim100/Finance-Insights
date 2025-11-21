@@ -28,7 +28,7 @@ const BlogCard = ({ blog }) => {
 
         <div className="">
           <div className="h-40">
-            <h6 className="text-sm mb-2 text-[#01101C]">{categories?.name}</h6>
+            <h6 className="text-sm mb-2 text-[#01101C] uppercase">{categories?.name}</h6>
 
             <h3 className="text-base md:text-lg font-semibold text[#01101C] line-clamp-2 mb-2 ">
               {title}
