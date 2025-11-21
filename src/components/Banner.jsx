@@ -22,7 +22,7 @@ const Banner = () => {
                         </p>
 
                         <div className="mt-4 flex gap-4 sm:mt-6">
-                            <Link to="/blogs" className='btn btn-sm rounded-full md:btn-lg'>
+                            <Link to="/blogs" className='btn btn-sm rounded-full md:btn-lg hover:bg-white hover:text-black shadow-none'>
                                 <span className='mx-2'>Explore Posts</span>
                             </Link>
 
