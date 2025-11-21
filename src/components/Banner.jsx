@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div>
-            <section className="bg-white lg:grid lg:h-screen border bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
+        <div className='mb-22'>
+            <section className="bg-white lg:grid lg:h-screen bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
                 <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-16 lg:px-8 lg:py-20 ">
                     <div className="max-w-prose h-80 text-left">
                         <h1 className="text-2xl font-bold text-gray-900 md:text-5xl">

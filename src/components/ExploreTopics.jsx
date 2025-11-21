@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ExploreTopics = () => {
-    
+
     const topics = [
         {
             logo: <svg xmlns="http://www.w3.org/2000/svg" width="52" height="54" viewBox="0 0 52 54" fill="none">
@@ -78,13 +78,16 @@ const ExploreTopics = () => {
         },
     ]
     return (
-        <div className='bg-[#E6E8EA] p-5'>
-            <div className="max-w-7xl mx-auto  w-full py-10 mb-12">
-                <h2 className="text-xl lg:text-2xl font-bold mb-6">
-                    Explore by Topics
-                </h2>
+        <div className='bg-[#E6E8EA] px-5 py-16'>
+            <div className="max-w-7xl mx-auto w-full">
+                <div className="mb-10">
+                    <h2 className="text-xl lg:text-2xl font-bold">
+                        Explore by Topics
+                    </h2>
+                    <div className="h-1 w-21.5 bg-black"></div>
+                </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
                     {/* <div className="bg-gray-50 border rounded-xl p-4 flex flex-col items-center gap-2">
                         {topic.logo}
                         <h3 className="font-semibold text-gray-900">{topic.title}</h3>
@@ -102,7 +105,7 @@ const ExploreTopics = () => {
                     }
 
 
-                    
+
                 </div>
             </div>
         </div>
