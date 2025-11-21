@@ -37,12 +37,13 @@ const ResourceLibrary = () => {
 
           <div className="mt-16 flex justify-center gap-4 ">
             <button className="">
-              <a
-                className="inline-block rounded-full border px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-black hover:text-white duration-300"
-                href="/resources"
+              <Link
+                // className="inline-block rounded-full border px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-black hover:text-white duration-300"
+                className="btn btn-sm btn-outline rounded-full md:btn-lg hover:bg-[#01101C]"
+                to="/resources"
               >
                 View All Resources
-              </a>
+              </Link>
             </button>
           </div>
         </div>

@@ -27,11 +27,18 @@ const FeaturedPosts = () => {
       </div>
       <div className="flex items-center  justify-center">
         <Link
-          className="inline-block rounded-full border  bg-gray-800 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-[#01101C]"
+          // className="inline-block rounded-full border  bg-gray-800 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-[#01101C]"
+          className="btn btn-sm btn-outline rounded-full md:btn-lg hover:bg-[#01101C]"
           to="/blogs"
         >
           Explore Posts
         </Link>
+        {/* <Link
+          className="btn btn-sm btn-outline rounded-full md:btn-lg"
+          to="/about"
+        >
+          <span className='mx-2'>About Me</span>
+        </Link> */}
       </div>
     </div>
   );
