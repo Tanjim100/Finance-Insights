@@ -78,7 +78,7 @@ const ExploreTopics = () => {
         },
     ]
     return (
-        <div className='bg-[#E6E8EA] px-5 py-16'>
+        <div className='bg-[#E6E8EA] px-5 py-16 mb-5'>
             <div className="max-w-7xl mx-auto w-full">
                 <div className="mb-10">
                     <h2 className="text-xl lg:text-2xl font-bold">

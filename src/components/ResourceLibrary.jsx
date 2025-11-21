@@ -20,8 +20,8 @@ const ResourceLibrary = () => {
 
   return (
     <div>
-      <section className="py-20 bg-white">
-        <div className="container max-w-7xl mx-auto px-4">
+      <section className="py-16 bg-white mb-5 ">
+        <div className="container max-w-7xl mx-auto ">
           <div className="mb-10">
             <h2 className="text-xl lg:text-2xl font-bold">
             Resource Library
@@ -29,7 +29,7 @@ const ResourceLibrary = () => {
           <div className="h-1 w-21.5 bg-black"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {features.map((resource) => (
               <ResourceCard
                 key={resource.id}
@@ -38,7 +38,7 @@ const ResourceLibrary = () => {
             ))}
           </div>
 
-          <div className="mt-16 flex justify-center gap-4 ">
+          <div className="mt-10 flex justify-center gap-4 ">
             <button className="">
               <Link
                 // className="inline-block rounded-full border px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-black hover:text-white duration-300"
