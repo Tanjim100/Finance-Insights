@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { categoriesApi, tagsApi } from "../../services/blogsAPI";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ recentPosts }) => {
   // ============ CATEGORIES & TAGS QUERIES ============
@@ -52,8 +53,10 @@ const Sidebar = ({ recentPosts }) => {
                 key={idx}
                 className="p-2 space-y-1"
               >
-                <h4 className="text-lg">{post?.title}</h4>
-                <p className="text-xs">{formatDate(post?.published_at)}</p>
+                <Link to={`/blogs/${post.slug}`}>
+                  <h4 className="text-lg">{post?.title}</h4>
+                  <p className="text-xs">{formatDate(post?.published_at)}</p>
+                </Link>
               </div>
             ))}
           </div>
