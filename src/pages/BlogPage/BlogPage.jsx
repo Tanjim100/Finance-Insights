@@ -25,7 +25,23 @@ const BlogPage = () => {
     queryFn: () => postsApi.getRecentPosts(),
   });
 
-  console.log(recentBlogs);
+  const tagIds = blog?.post_tags.map(pt => pt.tags.id);
+  console.log(tagIds);
+  // console.log(blog.id, blog.category_id);
+
+  const { 
+    data: relatedBlogs = [], 
+    isLoading: relatedBlogsLoading 
+  } = useQuery({
+    queryKey: ["relatedPosts", blog?.id, blog?.category_id, tagIds],
+    queryFn: () =>
+      postsApi.getRelatedPosts(blog.id, blog.category_id, tagIds, 3),
+    enabled: !!blog?.id,
+  });
+
+  console.log("myblog: ", blog);
+
+  console.log("relatedBlogs: ", relatedBlogs);
 
   if (isLoading) {
     return (
@@ -47,6 +63,8 @@ const BlogPage = () => {
       </div>
     );
   }
+
+
 
   const recentPosts = [
     {
@@ -116,11 +134,13 @@ const BlogPage = () => {
         {/* Blog Bar  */}
         <BlogBar
           blog={blog}
-          recentPosts={recentPosts}
+          relatedPosts={relatedBlogs}
         />
       </div>
     </div>
   );
 };
+
+
 
 export default BlogPage;

@@ -3,7 +3,7 @@ import BlogCard from "../../components/BlogCard";
 import BlogContent from "../../components/BlogContent";
 import { space } from "postcss/lib/list";
 
-const BlogBar = ({ blog, recentPosts }) => {
+const BlogBar = ({ blog, relatedPosts}) => {
   function formatDate(dateString) {
     const date = new Date(dateString);
 
@@ -14,7 +14,7 @@ const BlogBar = ({ blog, recentPosts }) => {
     });
   }
 
-  console.log(blog);
+  // console.log(blog);
   return (
     <div className=" rounded-lg lg:col-span-3 order-1 lg:order-2">
       <h3 className="text-3xl font-bold text-[#01101C]">{blog?.title}</h3>
@@ -22,8 +22,9 @@ const BlogBar = ({ blog, recentPosts }) => {
       <p className="text-[#01101C] my-2 font-[400] italic text-[20px] leading-[120%] tracking-[0.6px] font-serif">
         {blog?.description}
       </p>
-      <div className="2 flex justify-between mt-4 mb-8">
-        <div className="flex gap-8">
+      <div className="md:flex md:justify-between mt-4 mb-8 space-y-2 md:space-y-0">
+        <div className="md:flex md:justify-between gap-4 space-y-2 md:space-y-0 text-[#55636F]">
+          {/* publish date */}
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +38,9 @@ const BlogBar = ({ blog, recentPosts }) => {
                 fill="#55636F"
               />
             </svg>
-            <p>{formatDate(blog?.published_at)}</p>
+            <p className="text-xs md:text-sm">{formatDate(blog?.published_at)}</p>
           </div>
+          {/* category  */}
           {blog.categories &&
             <div className="flex items-center gap-2">
               <svg
@@ -56,9 +58,10 @@ const BlogBar = ({ blog, recentPosts }) => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <p>{blog?.categories?.name}</p>
+              <p className="text-xs md:text-sm">{blog?.categories?.name}</p>
             </div>
           }
+          {/* tags  */}
           {blog.post_tags.length > 0 &&
             <div className="flex items-center gap-2">
               <svg
@@ -94,16 +97,17 @@ const BlogBar = ({ blog, recentPosts }) => {
 
               {
                 blog?.post_tags.map((tag, idx) => (
-                  <span key={idx}>{tag?.tags?.name}
+                  <p className="text-xs md:text-sm"><span key={idx}>{tag?.tags?.name}
                   {
                     blog.post_tags.length != idx+1 && <span>,</span>
-                  }</span>
+                  }</span></p>
                 ))
               }
             </div>
           }
+          <p className="text-xs md:text-sm">updated on {formatDate(blog?.updated_at)}</p>
         </div>
-        <p>updated on {formatDate(blog?.updated_at)}</p>
+        
       </div>
       <div>
         <img
@@ -169,7 +173,7 @@ const BlogBar = ({ blog, recentPosts }) => {
       <div className="space-y-6 my-10">
         <h4 className="text-2xl font-bold text-[#01101C]">Related Posts</h4>
         <div className="related-posts grid grid-cols-1 md:grid-cols-3 gap-5">
-          {recentPosts.map((post) => (
+          {relatedPosts.length > 0 && relatedPosts.map((post) => (
             <BlogCard
               key={post.id}
               blog={post}

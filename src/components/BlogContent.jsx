@@ -8,13 +8,13 @@ const BlogContent = ({ content }) => {
       {blocks.map((block) => {
         const { id, type, props, content: textContent } = block;
 
-        const colorClass = props?.textColor === "blue" ? "text-blue-600" : "text-gray-900";
+        const colorClass = props?.textColor === "blue" ? "text-blue-600" : "text-[#01101C]";
         const alignmentClass =
           props?.textAlignment === "center"
             ? "text-center"
             : props?.textAlignment === "right"
-            ? "text-right"
-            : "text-left";
+              ? "text-right"
+              : "text-left";
 
         switch (type) {
           case "paragraph":
@@ -28,7 +28,7 @@ const BlogContent = ({ content }) => {
                       className={[
                         style.bold ? "font-bold" : "",
                         style.italic ? "italic" : "",
-                        style.code ? "font-mono bg-gray-100 px-1 rounded" : "",
+                        style.code ? "font-serif bg-gray-100 px-1 rounded" : "",
                       ].join(" ")}
                     >
                       {t.text}
@@ -82,6 +82,26 @@ const BlogContent = ({ content }) => {
                 {textContent?.map((t) => t.text).join("\n")}
               </pre>
             );
+
+          // -------------------- NEW: IMAGE SUPPORT --------------------
+          case "image":
+            return (
+              <div key={id} className={`${alignmentClass}`}>
+                <img
+                  src={props?.url}
+                  alt={props?.alt || "Blog image"}
+                  className="rounded-lg max-w-full mx-auto px-10"
+                  style={{
+                    width: props?.width || "auto",
+                    height: props?.height || "auto",
+                  }}
+                />
+                {props?.caption && (
+                  <p className="text-sm text-gray-500 mt-1 text-center">{props.caption}</p>
+                )}
+              </div>
+            );
+
 
           default:
             return null;

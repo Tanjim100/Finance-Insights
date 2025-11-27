@@ -203,11 +203,11 @@ const Blogs = () => {
                 <div className=" rounded  lg:col-span-3 order-2 md:order-1 mb-16">
                     <div className='flex justify-between mb-5 items-end'>
                         <div className='relative'>
-                            <button><IoSearch className='absolute left-90 bottom-2 z-10 text-2xl text-black' /></button>
+                            <button><IoSearch className='absolute left-40 md:left-90 bottom-2 z-10 text-2xl text-black' /></button>
                             <input
                                 type="text"
                                 placeholder="Search Blogs"
-                                className="input pr-12 bg-transparent border-black rounded-full w-100 z-5 placeholder-black"
+                                className="input pr-12 bg-transparent border-black rounded-full w-50 md:w-100 z-5 placeholder-black"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />

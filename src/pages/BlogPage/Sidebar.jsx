@@ -16,6 +16,16 @@ const Sidebar = ({ recentPosts }) => {
   console.log(categories);
 
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+
   const { data: tags } = useQuery({
     queryKey: ["tags"],
     queryFn: tagsApi.getAll,
@@ -28,7 +38,7 @@ const Sidebar = ({ recentPosts }) => {
   console.log(tags);
 
   return (
-    <div className=" rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 lg:order-1">
+    <div className="sticky top-10 rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 lg:order-1 ">
       <div>
         <h3 className="text-xl pb-4 font-bold">Recent Posts</h3>
         <span className="flex items-center">
@@ -42,8 +52,8 @@ const Sidebar = ({ recentPosts }) => {
                 key={idx}
                 className="p-2 space-y-1"
               >
-                <h4 className="text-lg">{post.title}</h4>
-                <p className="text-xs">{post.publishedDate}</p>
+                <h4 className="text-lg">{post?.title}</h4>
+                <p className="text-xs">{formatDate(post?.published_at)}</p>
               </div>
             ))}
           </div>
@@ -66,7 +76,7 @@ const Sidebar = ({ recentPosts }) => {
           </div>
         }
       </div>
-      <div className="">
+      {/* <div className="">
         <h3 className="text-xl mb-4 font-bold">Popular Tags</h3>
         <span className="flex items-center">
           <span className="h-px flex-1 bg-white"></span>
@@ -83,7 +93,7 @@ const Sidebar = ({ recentPosts }) => {
             ))}
           </div>
         }
-      </div>
+      </div> */}
     </div>
   );
 };
