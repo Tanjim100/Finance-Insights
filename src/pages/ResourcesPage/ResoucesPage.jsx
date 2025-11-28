@@ -179,7 +179,9 @@ const ResoucesPage = () => {
             </p>
           </div>
         )}
-        <div className="pagination flex justify-center gap-2 my-16">
+
+        {/* pagination  */}
+        <div className=" hidden pagination justify-center gap-2 my-16"> 
           {/* <p>Current Page: {currentPage}</p> */}
           <button
             className="btn btn-xs md:btn-md bg-[#E6E8EA] text-black border-none shadow-none"
