@@ -165,7 +165,7 @@ export const postsApi = {
     // const from = (page - 1) * limit;
     // const to = from + limit - 1;
 
-    console.log('post called');
+    // console.log('post called');
     const { data, error } = await supabase
       .from("posts")
       .select(
@@ -190,7 +190,7 @@ export const postsApi = {
     // .range(from, to);
 
     if (error) throw error;
-    console.log(data);
+    // console.log(data);
     return data;
   },
 
@@ -228,7 +228,7 @@ export const postsApi = {
       .limit(3);
 
     if (error) throw error;
-    console.log(data);
+    // console.log(data);
     return data;
   },
 
@@ -253,7 +253,7 @@ export const postsApi = {
       .limit(4);
 
     if (error) throw error;
-    console.log(data);
+    // console.log(data);
     return data;
   },
 

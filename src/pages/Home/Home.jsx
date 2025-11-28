@@ -6,18 +6,20 @@ import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Helmet>
         <title>Home | FINANCE INSIGHTS</title>
         <meta name="description" content="This is the home page of my React site" />
-        <meta property="og:title" content="Home Page" />
-        <meta property="og:image" content="/banner.jpg" />
+        {/* <meta property="og:title" content="Home Page" />
+        <meta property="og:image" content="/banner.jpg" /> */}
       </Helmet>
-      <Banner />
-      <FeaturedPosts />
-      <ExploreTopics />
-      <ResourceLibrary />
-    </div>
+      <div>
+        <Banner />
+        <FeaturedPosts />
+        <ExploreTopics />
+        <ResourceLibrary />
+      </div>
+    </>
   );
 };
 

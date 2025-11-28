@@ -20,7 +20,7 @@ const ResourceLibrary = () => {
 
   return (
     <div>
-      <section className="py-16 bg-white mb-5 ">
+      <section className="py-16 bg-white mb-5 px-5">
         <div className="container max-w-7xl mx-auto ">
           <div className="mb-10">
             <h2 className="text-xl lg:text-2xl font-bold">

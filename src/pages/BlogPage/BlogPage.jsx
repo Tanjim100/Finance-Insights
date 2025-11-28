@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { postsApi } from "../../services/blogsAPI";
 import Sidebar from "./Sidebar";
 import BlogBar from "./BlogBar";
+import { Helmet } from "react-helmet";
 
 const BlogPage = () => {
   const { slug } = useParams();
@@ -26,12 +27,12 @@ const BlogPage = () => {
   });
 
   const tagIds = blog?.post_tags.map(pt => pt.tags.id);
-  console.log(tagIds);
+  // console.log(tagIds);
   // console.log(blog.id, blog.category_id);
 
-  const { 
-    data: relatedBlogs = [], 
-    isLoading: relatedBlogsLoading 
+  const {
+    data: relatedBlogs = [],
+    isLoading: relatedBlogsLoading
   } = useQuery({
     queryKey: ["relatedPosts", blog?.id, blog?.category_id, tagIds],
     queryFn: () =>
@@ -39,12 +40,13 @@ const BlogPage = () => {
     enabled: !!blog?.id,
   });
 
-  console.log("myblog: ", blog);
+  // console.log("myblog: ", blog);
 
-  console.log("relatedBlogs: ", relatedBlogs);
+  // console.log("relatedBlogs: ", relatedBlogs);
 
   if (isLoading) {
     return (
+      
       <div className="flex items-center justify-center min-h-screen">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
@@ -66,78 +68,86 @@ const BlogPage = () => {
 
 
 
-  const recentPosts = [
-    {
-      id: 14,
-      title: "AI-Powered Accounting: The Next Frontier",
-      category: "accounting",
-      tag: "compliance",
-      details:
-        "How automation and AI are revolutionizing bookkeeping and financial reporting.",
-      publishedDate: "2025-08-19",
-      image:
-        "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
-    },
-    {
-      id: 15,
-      title: "AI-Powered Accounting: The Next Frontier",
-      category: "accounting",
-      tag: "compliance",
-      details:
-        "How automation and AI are revolutionizing bookkeeping and financial reporting.",
-      publishedDate: "2025-08-19",
-      image:
-        "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
-    },
-    {
-      id: 16,
-      title: "AI-Powered Accounting: The Next Frontier",
-      category: "accounting",
-      tag: "compliance",
-      details:
-        "How automation and AI are revolutionizing bookkeeping and financial reporting.",
-      publishedDate: "2025-08-19",
-      image:
-        "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
-    },
-  ];
-  const categories = [
-    "tax",
-    "finance",
-    "accounting",
-    "banking",
-    "industry",
-    "economics",
-    "auditing",
-    "share market",
-  ];
-  const tags = [
-    "tax planning",
-    "audit",
-    "compliance",
-    "money",
-    "investing",
-    "stocks",
-    "inflation",
-    "bonds",
-  ];
+  // const recentPosts = [
+  //   {
+  //     id: 14,
+  //     title: "AI-Powered Accounting: The Next Frontier",
+  //     category: "accounting",
+  //     tag: "compliance",
+  //     details:
+  //       "How automation and AI are revolutionizing bookkeeping and financial reporting.",
+  //     publishedDate: "2025-08-19",
+  //     image:
+  //       "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
+  //   },
+  //   {
+  //     id: 15,
+  //     title: "AI-Powered Accounting: The Next Frontier",
+  //     category: "accounting",
+  //     tag: "compliance",
+  //     details:
+  //       "How automation and AI are revolutionizing bookkeeping and financial reporting.",
+  //     publishedDate: "2025-08-19",
+  //     image:
+  //       "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
+  //   },
+  //   {
+  //     id: 16,
+  //     title: "AI-Powered Accounting: The Next Frontier",
+  //     category: "accounting",
+  //     tag: "compliance",
+  //     details:
+  //       "How automation and AI are revolutionizing bookkeeping and financial reporting.",
+  //     publishedDate: "2025-08-19",
+  //     image:
+  //       "https://i.ibb.co.com/1GfFHG2x/futuristic-robot-interacting-with-money.jpg",
+  //   },
+  // ];
+  // const categories = [
+  //   "tax",
+  //   "finance",
+  //   "accounting",
+  //   "banking",
+  //   "industry",
+  //   "economics",
+  //   "auditing",
+  //   "share market",
+  // ];
+  // const tags = [
+  //   "tax planning",
+  //   "audit",
+  //   "compliance",
+  //   "money",
+  //   "investing",
+  //   "stocks",
+  //   "inflation",
+  //   "bonds",
+  // ];
   return (
-    <div className="max-w-7xl mx-auto my-10 px-5">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
-        {/* Side Bar  */}
-        <Sidebar
-          recentPosts={recentBlogs}
-          categories={categories}
-          tags={tags}
-        />
+    <>
+      <Helmet>
+        <title>{blog.slug} | FINANCE INSIGHTS</title>
+        <meta name="description" content="This is the blog page of my website" />
+        {/* <meta property="og:title" content="Home Page" />
+        <meta property="og:image" content="/banner.jpg" /> */}
+      </Helmet>
+      <div className="max-w-7xl mx-auto my-10 px-5">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8">
+          {/* Side Bar  */}
+          <Sidebar
+            recentPosts={recentBlogs}
+            // categories={categories}
+            // tags={tags}
+          />
 
-        {/* Blog Bar  */}
-        <BlogBar
-          blog={blog}
-          relatedPosts={relatedBlogs}
-        />
+          {/* Blog Bar  */}
+          <BlogBar
+            blog={blog}
+            relatedPosts={relatedBlogs}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

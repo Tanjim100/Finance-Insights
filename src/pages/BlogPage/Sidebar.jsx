@@ -14,7 +14,7 @@ const Sidebar = ({ recentPosts }) => {
       );
     },
   });
-  console.log(categories);
+  // console.log(categories);
 
 
   function formatDate(dateString) {
@@ -36,7 +36,7 @@ const Sidebar = ({ recentPosts }) => {
     },
   });
 
-  console.log(tags);
+  // console.log(tags);
 
   return (
     <div className="sticky top-10 rounded-lg bg-[#E6E8EA] py-6 px-4 h-fit space-y-10 order-2 lg:order-1 ">
@@ -72,7 +72,9 @@ const Sidebar = ({ recentPosts }) => {
             {categories.map((category, idx) => (
               <button key={idx}>
                 <div className="py-1">
-                  <p className="font-medium text-left line-clamp-1 hover:underline duration-300 underline-offset-4">{category?.name}</p>
+                  <Link to={`/blogs?category=${category?.id}`}>
+                    <p className="font-medium text-left line-clamp-1 hover:underline duration-300 underline-offset-4">{category?.name}</p>
+                  </Link>
                 </div>
               </button>
             ))}

@@ -10,13 +10,12 @@ const Banner = () => {
             <section className="bg-white lg:grid lg:h-screen bg-bottom bg-contain md:bg-cover bg-no-repeat " style={{ backgroundImage: `url(${banner3})` }}>
                 <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-16 lg:px-8 lg:py-20 ">
                     <div className="max-w-prose h-80 text-left">
-                        <h1 className="text-2xl font-bold text-gray-900 md:text-5xl">
+                        <h1 className="text-2xl font-bold text-[#01101C] md:text-5xl text-shadow-md">
                             Expert Insights on Finance,<br />
-                            <strong className="text-[#01101C]"> Accounting </strong>
-                            and Beyond
+                             Accounting and Beyond
                         </h1>
 
-                        <p className="mt-4 text-xs text-pretty text-gray-700 sm:text-lg/relaxed">
+                        <p className="mt-4 text-xs text-pretty text-[#55636F] sm:text-lg/relaxed text-shadow-2xs">
                             Stay ahead with in-depth analysis on tax, auditing, market trends,
                             and more- tailored for professionals and students alike
                         </p>

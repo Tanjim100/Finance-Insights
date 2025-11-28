@@ -13,7 +13,7 @@ const BlogBar = ({ blog, relatedPosts}) => {
       year: "numeric",
     });
   }
-
+  // console.log(blog.content);
   // console.log(blog);
   return (
     <div className=" rounded-lg lg:col-span-3 order-1 lg:order-2">
@@ -63,7 +63,7 @@ const BlogBar = ({ blog, relatedPosts}) => {
           }
           {/* tags  */}
           {blog.post_tags.length > 0 &&
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -117,7 +117,7 @@ const BlogBar = ({ blog, relatedPosts}) => {
         />
       </div>
       <div className="text-[#01101C] font-[400] text-[18px] leading-[170%] tracking-[0.54px] font-serif space-y-10 mt-8">
-        <BlogContent content={blog.content}></BlogContent>
+        <BlogContent content={blog?.content}></BlogContent>
       </div>
       <div className="h-px bg-[#E6E8EA] my-8"></div>
       <div className="share space-y-3 mb-5">
